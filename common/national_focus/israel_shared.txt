@@ -1,0 +1,303 @@
+shared_focus =  {
+	id = ISR_nationalize_resource_industries
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 6
+	y = 0
+	completion_reward = {
+		454 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_political_power = 100
+		}
+	}
+}
+
+shared_focus =  {
+	id = ISR_economy_aggrement_with_england
+	icon = GFX_goal_big_news
+	cost = 6
+	x = -2
+	y = 1
+	relative_position_id = ISR_nationalize_resource_industries
+	prerequisite = {
+		focus = ISR_nationalize_resource_industries
+	}
+	completion_reward = {
+		454 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_political_power = 100
+		}
+		126 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+shared_focus =  {
+	id = ISR_economy_aggrement_with_usa
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_nationalize_resource_industries
+	prerequisite = {
+		focus = ISR_nationalize_resource_industries
+	}
+	completion_reward = {
+		454 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_political_power = 100
+		}
+		361= {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+shared_focus =  {
+	id = ISR_economy_aggrement_with_france
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 2
+	y = 1
+	relative_position_id = ISR_nationalize_resource_industries
+	prerequisite = {
+		focus = ISR_nationalize_resource_industries
+	}
+	completion_reward = {
+		454 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_political_power = 100
+		}
+		16 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+shared_focus =  {
+	id = ISR_economy_aids
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_economy_aggrement_with_england
+	prerequisite = {
+		focus = ISR_economy_aggrement_with_england
+	}
+	completion_reward = {
+		454 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_political_power = 50
+			add_stability = 0.1
+		}
+	}
+}
+
+shared_focus =  {
+	id = ISR_military_base
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_economy_aids
+	prerequisite = {
+		focus = ISR_economy_aids
+	}
+	completion_reward = {
+		454 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_war_support = -0.02
+	}
+}
+
+shared_focus =  {
+	id = ISR_man
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_military_base
+	prerequisite = {
+		focus = ISR_military_base
+	}
+	completion_reward = {
+		add_war_support = 0.1
+		add_ideas = ISR_new_army
+	}
+}
+
+shared_focus =  {
+	id = ISR_industrial_capacity
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_economy_aggrement_with_usa
+	prerequisite = {
+		focus = ISR_economy_aggrement_with_usa
+	}
+	completion_reward = {
+		add_ideas = ISR_industrial_capacity
+	}
+}
+
+shared_focus =  {
+	id = ISR_constructor
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_industrial_capacity
+	prerequisite = {
+		focus = ISR_industrial_capacity
+	}
+	completion_reward = {
+		add_ideas = ISR_constructor
+	}
+}
+
+shared_focus =  {
+	id = ISR_research_slot1
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_constructor
+	prerequisite = {
+		focus = ISR_constructor
+	}
+	completion_reward = {
+		add_research_slot = 1
+	}
+}
+
+shared_focus =  {
+	id = ISR_research_slot2
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_research_slot1
+
+	prerequisite = {
+		focus = ISR_research_slot1
+	}
+	completion_reward = {
+		add_research_slot = 1
+		add_ideas = ISR_university
+	}
+}
+
+shared_focus =  {
+	id = ISR_steel
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_economy_aggrement_with_france
+	prerequisite = {
+		focus = ISR_economy_aggrement_with_france
+	}
+	completion_reward = {
+		454 = {
+			add_resource = {
+				type = steel
+				amount = 12
+			}
+		}
+	}
+}
+
+shared_focus =  {
+	id = ISR_oil
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_steel
+	prerequisite = {
+		focus = ISR_steel
+	}
+	completion_reward = {
+		454 = {
+			add_resource = {
+				type = oil
+				amount = 45
+			}
+			add_resource = {
+				type = rubber
+				amount =14
+			}
+		}
+	}
+}
+
+shared_focus =  {
+	id = ISR_aluminium
+	icon = GFX_goal_big_news
+	cost = 6
+	x = 0
+	y = 1
+	relative_position_id = ISR_oil
+	prerequisite = {
+		focus = ISR_oil
+	}
+	completion_reward = {
+		454 = {
+			add_resource = {
+				type = aluminium
+				amount = 29
+			}
+		}
+	}
+}
+
+
+######################## 

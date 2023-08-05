@@ -1,0 +1,96 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = israel_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 1000
+			tag = ISR
+		}
+	}
+	
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	default = no
+
+	shared_focus = ISR_nationalize_resource_industries
+
+    focus = {
+		id = ISR_crusader
+		icon = GFX_GER_Chancellor_Hitler
+		mutually_exclusive = { focus = ISR_democrat = ISR_zionist focus = ISR_revenge}
+		x = 7
+		y = 0
+		cost = 5
+		relative_position_id = ISR_nationalize_resource_industries
+
+		completion_reward = {
+		    add_country_leader_trait = IV.BALDVIN
+		    hidden_effect = {
+		        load_focus_tree = israel_crusader
+				mark_focus_tree_layout_dirty = yes
+		    }
+		}
+	}	
+	focus = {
+		id = ISR_democrat
+		icon = GFX_GER_Return_of_the_Kaiser
+		mutually_exclusive = { focus = ISR_crusader focus = ISR_zionist focus = ISR_revenge }
+		cost = 10.00
+		x = 3
+		y = 0
+		relative_position_id = ISR_crusader
+
+		completion_reward = {
+		    hidden_effect = {
+			    load_focus_tree = israel_democrat
+				mark_focus_tree_layout_dirty = yes
+			}
+	    }
+	}
+	focus = {
+		id = ISR_zionist
+		icon = GFX_GER_SS_VT
+		cost = 10.00
+		mutually_exclusive = { focus = ISR_crusader focus = ISR_democrat focus = ISR_revenge }
+		x = 3
+		y = 0
+		relative_position_id = ISR_democrat
+		
+		completion_reward = {
+			hidden_effect = {
+				load_focus_tree = israel_zionist
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+	focus = {
+		id = ISR_revenge
+		icon = GFX_DDR_Auferstanden_Aus_Ruinen
+		mutually_exclusive = { focus = ISR_crusader focus = ISR_zionist focus = ISR_democrat }
+		x = 3
+		y = 0
+
+		relative_position_id = ISR_zionist
+		cost = 10
+		ai_will_do = {
+			base = 10
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			hidden_effect = {
+				load_focus_tree = israel_revenge
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+focus_tree = {
+	id = israel_democrat
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ISR
+		}
+	}
+	
+	default = no
+
+	shared_focus = ISR_nationalize_resource_industries
+	
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = ISRAEL_democrat
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = }
+		mutually_exclusive = { focus =  }
+		x = 7
+		y = 0
+		relative_position_id = ISR_nationalize_resource_industries
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+
+		}
+	}
+}

@@ -1,0 +1,404 @@
+focus_tree = {
+	id = israel_crusader
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ISR
+		}
+	}
+	
+	default = no
+
+	shared_focus = ISR_nationalize_resource_industries
+	
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = ISR_what_are_we
+		icon = GFX_goal_generic_construction
+		x = 15
+		y = 0
+		relative_position_id = ISR_nationalize_resource_industries
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_visit_papl_state
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_what_are_we
+		prerequisite = {
+			focus = ISR_what_are_we
+		}
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_find_the_king
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_visit_papl_state
+		prerequisite = {
+			focus = ISR_visit_papl_state
+		}
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_back_to_the_future
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_find_the_king
+		prerequisite = {
+			focus = ISR_find_the_king
+		}
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_purchase_jordan
+		icon = GFX_goal_generic_construction
+		x = -5
+		y = 1
+		relative_position_id = ISR_back_to_the_future
+		prerequisite = {
+			focus = ISR_back_to_the_future
+		}
+		mutually_exclusive = { focus = ISR_steal_jordan }
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_steal_jordan
+		icon = GFX_goal_generic_construction
+		x = -3
+		y = 1
+		relative_position_id = ISR_back_to_the_future
+		prerequisite = {
+			focus = ISR_back_to_the_future
+		}
+		mutually_exclusive = { focus = ISR_purchase_jordan }
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ISR_purchase_lebanon
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_purchase_jordan
+		prerequisite = {
+			focus = ISR_purchase_jordan
+			focus = ISR_steal_jordan
+		}
+		mutually_exclusive = { focus = ISR_steal_lebanon}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_steal_lebanon
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_steal_jordan
+		prerequisite = {
+			focus = ISR_steal_jordan
+			focus = ISR_purchase_jordan
+		}
+		mutually_exclusive = { focus = ISR_purchase_lebanon}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_purchase_sinai
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_purchase_lebanon
+		prerequisite = {
+			focus = ISR_purchase_lebanon
+			focus = ISR_steal_lebanon
+		}
+		mutually_exclusive = { focus = ISR_steal_sinai}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_steal_sinai
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_steal_lebanon
+		prerequisite = {
+			focus = ISR_steal_lebanon
+			focus = ISR_purchase_lebanon
+		}
+		mutually_exclusive = { focus = ISR_purchase_sinai}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_purchase_cyprus
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_purchase_sinai
+		prerequisite = {
+			focus = ISR_purchase_sinai
+			focus = ISR_steal_sinai
+		}
+		mutually_exclusive = { focus = ISR_steal_cyprus}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_steal_cyprus
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_steal_sinai
+		prerequisite = {
+			focus = ISR_purchase_sinai
+			focus = ISR_steal_sinai
+		}
+		mutually_exclusive = { focus = ISR_purchase_cyprus}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_purchase_syria
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_purchase_cyprus
+		prerequisite = {
+			focus = ISR_purchase_cyprus
+			focus = ISR_steal_cyprus
+		}
+		mutually_exclusive = { focus = ISR_steal_syria}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_steal_syria
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_steal_cyprus
+		prerequisite = {
+			focus = ISR_purchase_cyprus
+			focus = ISR_steal_cyprus
+		}
+		mutually_exclusive = { focus = ISR_purchase_syria}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_icrease_the_army
+		icon = GFX_goal_generic_construction
+		x = 3
+		y = 1
+		relative_position_id = ISR_back_to_the_future
+		prerequisite = {
+			focus = ISR_back_to_the_future
+		}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_med_tank
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		relative_position_id = ISR_icrease_the_army
+		prerequisite = {
+			focus = ISR_icrease_the_army
+		}
+		mutually_exclusive = { focus = ISR_light_tank}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_light_tank
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		relative_position_id = ISR_icrease_the_army
+		prerequisite = {
+			focus = ISR_icrease_the_army
+		}
+		mutually_exclusive = { focus = ISR_med_tank}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_engine_tank
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_med_tank
+		prerequisite = {
+			focus = ISR_med_tank
+			focus = ISR_light_tank
+		}
+		mutually_exclusive = { focus = ISR_armor_tank}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_armor_tank
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_light_tank
+		prerequisite = {
+			focus = ISR_med_tank
+			focus = ISR_light_tank
+		}
+		mutually_exclusive = { focus = ISR_engine_tank}
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+}

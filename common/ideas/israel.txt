@@ -1,0 +1,41 @@
+ideas = {
+	country = {
+		ISR_industrial_capacity = { 
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+				
+			}
+        }
+
+		ISR_new_army = { 
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.07
+				weekly_manpower = 800
+				add_popularity = 30000
+				stability_factor = 0.15
+			}
+        }
+
+		ISR_constructor = { 
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.10
+			}
+        }
+
+		ISR_university = { 
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.13
+			}
+        }
+	}
+}
