@@ -13,60 +13,74 @@ focus_tree = {
 		factor = 0
 		
 		modifier = {
-			add = 1000
+			add = 10
 			tag = ISR
 		}
 	}
 	
-	continuous_focus_position = { x = 50 y = 1000 }
+	continuous_focus_position = { x = 50 y = 10 }
 
 	default = no
 
 	shared_focus = ISR_nationalize_resource_industries
+	shared_focus = ISR_army_effort
+	shared_focus = ISR_naval_effort
+	shared_focus = ISR_aviation_effort
+	
 
     focus = {
 		id = ISR_crusader
 		icon = GFX_GER_Chancellor_Hitler
-		mutually_exclusive = { focus = ISR_democrat = ISR_zionist focus = ISR_revenge}
+		mutually_exclusive = { focus = ISR_democrat = ISR_zionist focus = ISR_communist}
 		x = 7
 		y = 0
-		cost = 5
+		cost = 1
 		relative_position_id = ISR_nationalize_resource_industries
-
+		
+#		available = {
+#			has_completed_focus = ISR_research_slot2
+#		}
 		completion_reward = {
-		    add_country_leader_trait = IV.BALDVIN
-		    hidden_effect = {
-		        load_focus_tree = israel_crusader
+			news_event = ISR_news.1
+			add_country_leader_trait = IV.BALDVIN 
+		    	hidden_effect = {
+		        	load_focus_tree = israel_crusader
 				mark_focus_tree_layout_dirty = yes
-		    }
+		    	}
 		}
 	}	
 	focus = {
 		id = ISR_democrat
 		icon = GFX_GER_Return_of_the_Kaiser
-		mutually_exclusive = { focus = ISR_crusader focus = ISR_zionist focus = ISR_revenge }
+		mutually_exclusive = { focus = ISR_crusader focus = ISR_zionist focus = ISR_communist }
 		cost = 10.00
 		x = 3
 		y = 0
 		relative_position_id = ISR_crusader
-
+#		available = {
+#			has_completed_focus = ISR_research_slot2
+#		}
 		completion_reward = {
-		    hidden_effect = {
-			    load_focus_tree = israel_democrat
+			news_event = ISR_news.2
+			hidden_effect = {
+				load_focus_tree = israel_democrat
 				mark_focus_tree_layout_dirty = yes
 			}
-	    }
+		}
 	}
 	focus = {
 		id = ISR_zionist
 		icon = GFX_GER_SS_VT
 		cost = 10.00
-		mutually_exclusive = { focus = ISR_crusader focus = ISR_democrat focus = ISR_revenge }
+		mutually_exclusive = { focus = ISR_crusader focus = ISR_democrat focus = ISR_communist }
 		x = 3
 		y = 0
 		relative_position_id = ISR_democrat
-		
+#		available = {
+#			has_completed_focus = ISR_research_slot2
+#		}
 		completion_reward = {
+			news_event = ISR_news.3
 			hidden_effect = {
 				load_focus_tree = israel_zionist
 				mark_focus_tree_layout_dirty = yes
@@ -74,7 +88,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = ISR_revenge
+		id = ISR_communist
 		icon = GFX_DDR_Auferstanden_Aus_Ruinen
 		mutually_exclusive = { focus = ISR_crusader focus = ISR_zionist focus = ISR_democrat }
 		x = 3
@@ -85,10 +99,14 @@ focus_tree = {
 		ai_will_do = {
 			base = 10
 		}
+		#available = {
+		#	has_completed_focus = ISR_research_slot2
+		#}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			news_event = ISR_news.4
 			hidden_effect = {
-				load_focus_tree = israel_revenge
+				load_focus_tree = israel_communist
 				mark_focus_tree_layout_dirty = yes
 			}
 		}

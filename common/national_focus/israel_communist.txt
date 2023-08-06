@@ -1,5 +1,5 @@
 focus_tree = {
-	id = israel_revenge
+	id = israel_communist
 	
 	country = {
 		factor = 0
@@ -13,8 +13,11 @@ focus_tree = {
 	default = no
 
 	shared_focus = ISR_nationalize_resource_industries
+	shared_focus = ISR_army_effort
+	shared_focus = ISR_naval_effort
+	shared_focus = ISR_aviation_effort
 	
-	continuous_focus_position = { x = 50 y = 1000 }
+	continuous_focus_position = { x = 50 y = 10 }
 
 	focus = {
 		id = ISRAEL_revenge

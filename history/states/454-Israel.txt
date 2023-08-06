@@ -1,32 +1,39 @@
 
 state={
 	id=454
-	name="STATE_454" #ISRAEL
+	name="STATE_454" #Israel
 	manpower = 933142
+	resources={
+		oil=10
+	}
 	
-	state_category = rural
+	state_category = town
 
 	history={
 		owner = ISR
+		add_core_of = ISR
+		controller = ISR
+		victory_points = {
+			4206 15 
+		}
+		victory_points = {
+			1086 30 
+		}
+		victory_points = {
+			1065 5 
+		}
+		victory_points = {
+			1015 5 
+		}
 		buildings = {
 			infrastructure = 3 #was: 5
-			industrial_complex = 1
+			industrial_complex = 3
+			arms_factory = 1
 			air_base = 2
 			4206 = {
 				naval_base = 3
 			}
 		}
-		victory_points = {
-			1086 50 
-		}
-		victory_points = {
-			4206 50 
-		}
-		victory_points = {
-			1065 1-50 
-		}
-		add_core_of = PAL
-		add_core_of = ISR
 	}
 
 	provinces={

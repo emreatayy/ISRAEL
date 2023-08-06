@@ -1,0 +1,17 @@
+add_namespace = ISR
+
+country_event = {
+	id = DEN.1
+	title = "Denmark colonial sale"
+	desc = "Denmark wants to buy our nigeria colony"
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Sure"
+	}
+	option = {
+        name = "Nope"
+	}
+}
