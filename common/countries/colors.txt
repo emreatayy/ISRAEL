@@ -1,6 +1,0 @@
-#reload countrycolors
-
-ISR = {
-	color = RGB { 53 184 255 }
-	color_ui = rgb { 138 155 116 }
-}

@@ -1,17 +1,749 @@
 add_namespace = ISR
 
+#Jordan
 country_event = {
-	id = DEN.1
-	title = "Denmark colonial sale"
-	desc = "Denmark wants to buy our nigeria colony"
-	picture = GFX_report_event_generic_conference
-
+	id = ISR.1
+	title = "Israel wants to buy land"
+	desc = "Israel wants to buy the land of Jordan from us for 2 Civilian Factory"
+	picture = GFX_report_event_generic_read_write
+	 
 	is_triggered_only = yes
-
+	
 	option = {
-		name = "Sure"
+		name = "2 Civ!! Sure"
+		ai_chance = { base = 85}
+		ISR = {
+			country_event = { hours = 2 id = ISR.2 }
+		}
 	}
 	option = {
-        name = "Nope"
+		name = "No"
+		ai_chance = { base = 15 }	
+			ISR = {
+			country_event = { hours = 2 id = ISR.3 }
+		}
+	}
+}
+
+# UK Accepts
+country_event = {
+	id = ISR.2
+	title = "UK accepts"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "For Israel!"
+		455 = { add_core_of = ISR }
+		ISR = { transfer_state = 455 }
+		give_military_access = ENG
+		ENG = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ISR = {
+			random_owned_controlled_state = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+		}
+		add_timed_idea = { 
+			idea = ISR_jordan_payment
+			days = 100 
+		}
+	}
+}
+# UK Declines
+country_event = {
+	id = ISR.3
+	title = "UK Declines"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We will back!"
+		455 = { add_core_of = ISR }
+	}
+}
+
+#Lebanon
+country_event = {
+	id = ISR.4
+	title = "Israel wants to buy land"
+	desc = "Israel wants to buy the land of Lebanon from us for 2 Civilian Factory"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "2 Civ!! Sure"
+		desc = "Gain 2 civ"
+		ai_chance = { base = 85}
+		ISR = {
+			country_event = { hours = 2 id = ISR.5 }
+		}
+	}
+	option = {
+		name = "No"
+		ai_chance = { base = 15 }	
+			ISR = {
+			country_event = { hours = 2 id = ISR.6 }
+		}
+	}
+}
+
+# France Accepts
+country_event = {
+	id = ISR.5
+	title = "France accepts"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "For Israel!"
+		553 = { add_core_of = ISR }
+		ISR = { transfer_state = 553 }
+		give_military_access = FRA
+		FRA = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ISR = {
+			random_owned_controlled_state = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+		}
+		add_timed_idea = { 
+			idea = ISR_lebanon_payment
+			days = 100 
+		}
+	}
+}
+# France Declines
+country_event = {
+	id = ISR.6
+	title = "France Declines"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We will back!"
+		553 = { add_core_of = ISR }
+	}
+}
+
+#Sinai
+country_event = {
+	id = ISR.7
+	title = "Israel wants to buy land"
+	desc = "Israel wants to buy the land of Sinai from us for 1 Civilian Factory"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "1 Civ!! Sure"
+		ai_chance = { base = 85}
+		ISR = {
+			country_event = { hours = 2 id = ISR.8 }
+		}
+	}
+	option = {
+		name = "No"
+		ai_chance = { base = 15 }	
+			ISR = {
+			country_event = { hours = 2 id = ISR.9 }
+		}
+	}
+}
+
+# UK Accepts
+country_event = {
+	id = ISR.8
+	title = "UK accepts"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "For Israel!"
+		453 = { add_core_of = ISR }
+		ISR = { transfer_state = 453 }
+		give_military_access = ENG
+		ENG = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		add_timed_idea = { 
+			idea = ISR_sinai_payment
+			days = 100 
+		}
+	}
+}
+# UK Declines
+country_event = {
+	id = ISR.9
+	title = "UK Declines"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We will back!"
+		453 = { add_core_of = ISR }
+	}
+}
+
+
+#Cyprus
+country_event = {
+	id = ISR.10
+	title = "Israel wants to buy land"
+	desc = "Israel wants to buy the land of Cyprus from us for 2 Civilian Factory"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "2 Civ!! Sure"
+		ai_chance = { base = 85}
+		ISR = {
+			country_event = { hours = 2 id = ISR.11 }
+		}
+	}
+	option = {
+		name = "No"
+		ai_chance = { base = 15 }	
+			ISR = {
+			country_event = { hours = 2 id = ISR.12 }
+		}
+	}
+}
+
+# UK Accepts
+country_event = {
+	id = ISR.11
+	title = "UK accepts"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "For Israel!"
+		183 = { add_core_of = ISR }
+		ISR = { transfer_state = 183 }
+		give_military_access = ENG
+		ENG = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ISR = {
+			random_owned_controlled_state = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+		}
+		add_timed_idea = { 
+			idea = ISR_cyprus_payment
+			days = 100 
+		}
+	}
+}
+# UK Declines
+country_event = {
+	id = ISR.12
+	title = "UK Declines"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We will back!"
+		183 = { add_core_of = ISR }
+	}
+}
+
+#Syria
+country_event = {
+	id = ISR.13
+	title = "Israel wants to buy land"
+	desc = "Israel wants to buy the land of All Syria from us for 5 Civilian Factory"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "5 Civ!! Sure"
+		ai_chance = { base = 85}
+		ISR = {
+			country_event = { hours = 2 id = ISR.14 }
+		}
+	}
+	option = {
+		name = "No"
+		ai_chance = { base = 15 }	
+			ISR = {
+			country_event = { hours = 2 id = ISR.15 }
+		}
+	}
+}
+
+# France Accepts
+country_event = {
+	id = ISR.14
+	title = "France accepts"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "For Israel!"
+		799 = { add_core_of = ISR }
+		677 = { add_core_of = ISR }
+		680 = { add_core_of = ISR }
+		554 = { add_core_of = ISR }
+		ISR = { transfer_state = 799 }
+		ISR = { transfer_state = 677 }
+		ISR = { transfer_state = 680 }
+		ISR = { transfer_state = 554 }
+		give_military_access = FRA
+		FRA = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ISR = {
+			random_owned_controlled_state = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+		}
+		add_timed_idea = { 
+			idea = ISR_syria_payment
+			days = 100 
+		}
+	}
+}
+# France Declines
+country_event = {
+	id = ISR.15
+	title = "France Declines"
+	desc = ""
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We will back!"
+		799 = { add_core_of = ISR }
+		677 = { add_core_of = ISR }
+		680 = { add_core_of = ISR }
+		554 = { add_core_of = ISR }
+	}
+}
+
+#################Steal Lands
+#Steal Jordan
+country_event = {
+	id = ISR.16
+	title = "Steal Jordan"
+	desc = "Israel wants to steal the land of Jordan from UK"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "Make it Your Puppet"
+		ai_chance = { base = 100}
+		455 = { add_core_of = ISR }
+		ENG = { release = JOR }
+		ISR = { puppet = JOR}
+		ISR = {
+			add_timed_idea = { 
+				idea = ISR_jordan_cost_of_stealing
+				days = 100 
+			}
+		}
+		ENG = {
+			add_timed_idea = { 
+				idea = ENG_jordan_cost_of_stealing
+				days = 100 
+			}
+		}
+	}
+}
+country_event = {
+	id = ISR.161
+	title = "Israel Stole Jordan"
+	desc = "Israel Started An Uprising In Jordan And Made Jordan Its Puppet"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We Will Make You Pay For It"
+		ai_chance = { base = 20}
+		ENG = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ISR
+			}
+			add_ideas = JEWS_AMONG_US
+			
+		}
+	}
+	option = {
+		name = "Let's Not Anger The Jews Among Us"
+		ai_chance = { base = 80}
+	}
+}
+#Steal Lebanon
+country_event = {
+	id = ISR.17
+	title = "Steal Lebanon"
+	desc = "Israel wants to steal the land of Lebanon from France"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "Make it Your Puppet"
+		ai_chance = { base = 100}
+		553 = { add_core_of = ISR }
+		FRA = { release = LEB }
+		ISR = { puppet = LEB }
+		ISR = {
+			add_timed_idea = { 
+				idea = ISR_lebanon_cost_of_stealing
+				days = 100 
+			}
+		}
+		FRA = {
+			add_timed_idea = { 
+				idea = FRA_lebanon_cost_of_stealing
+				days = 100 
+			}
+		}
+	}
+}
+country_event = {
+	id = ISR.171
+	title = "Israel Stole Lebanon"
+	desc = "Israel Started An Uprising In Lebanon And Made Lebanon Its Puppet"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We Will Make You Pay For It"
+		ai_chance = { base = 20}
+		FRA = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ISR
+			}
+			add_ideas = JEWS_AMONG_US
+			
+		}
+	}
+	option = {
+		name = "Let's Not Anger The Jews Among Us"
+		ai_chance = { base = 80}
+	}
+}
+#Steal Siani
+country_event = {
+	id = ISR.18
+	title = "Steal Sinai"
+	desc = "Israel wants to steal the land of Jordan from UK"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "Steal"
+		ai_chance = { base = 100}
+		453 = { add_core_of = ISR }
+		ISR = { transfer_state = 453 }
+		ISR = { release = EGY }
+		ISR = { puppet = EGY }
+		ISR = {
+			add_timed_idea = { 
+				idea = ISR_sinai_cost_of_stealing
+				days = 100 
+			}
+		}
+		ENG = {
+			add_timed_idea = { 
+				idea = ENG_sinai_cost_of_stealing
+				days = 100 
+			}
+		}
+	}
+}
+country_event = {
+	id = ISR.181
+	title = "Israel Stole Sinai"
+	desc = "Israel Started An Uprising In Sinai And Made Sinai Its Puppet"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We Will Make You Pay For It"
+		ai_chance = { base = 20}
+		ENG = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ISR
+			}
+			add_ideas = JEWS_AMONG_US	
+		}
+	}
+	option = {
+		name = "Let's Not Anger The Jews Among Us"
+		ai_chance = { base = 80}
+	}
+}
+#Steal Cyprus
+country_event = {
+	id = ISR.19
+	title = "Steal Cyprus"
+	desc = "Israel wants to steal the land of Jordan from UK"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "Make it Your Puppet"
+		ai_chance = { base = 100}
+		183 = { add_core_of = ISR }
+		ENG = { release = CYP }
+		ISR = { puppet = CYP }
+		ISR = {
+			add_timed_idea = { 
+				idea = ISR_cyprus_cost_of_stealing
+				days = 100 
+			}
+		}
+		ENG = {
+			add_timed_idea = { 
+				idea = ENG_cyprus_cost_of_stealing
+				days = 100 
+			}
+		}
+	}
+}
+country_event = {
+	id = ISR.191
+	title = "Israel Stole Cyprus"
+	desc = "Israel Started An Uprising In Cyprus And Made Cyprus Its Puppet"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We Will Make You Pay For It"
+		ai_chance = { base = 20}
+		ENG = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ISR
+			}
+			add_ideas = JEWS_AMONG_US
+			
+		}
+	}
+	option = {
+		name = "Let's Not Anger The Jews Among Us"
+		ai_chance = { base = 80}
+	}
+}
+#Steal Syria
+country_event = {
+	id = ISR.20
+	title = "Steal Syria"
+	desc = "Israel wants to steal the land of Jordan from UK"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "Make it Your Puppet"
+		ai_chance = { base = 100}
+		554 = { add_core_of = ISR }
+		680 = { add_core_of = ISR }
+		677 = { add_core_of = ISR }
+		799 = { add_core_of = ISR }
+		FRA = { release = SYR }
+		ISR = { puppet = SYR}
+		ISR = {
+			add_timed_idea = { 
+				idea = ISR_syria_cost_of_stealing
+				days = 100 
+			}
+		}
+		FRA = {
+			add_timed_idea = { 
+				idea = FRA_syria_cost_of_stealing
+				days = 100 
+			}
+		}
+	}
+}
+country_event = {
+	id = ISR.201
+	title = "Israel Stole Syria"
+	desc = "Israel Started An Uprising In Syria And Made Syria Its Puppet"
+	picture = GFX_report_event_generic_read_write
+	 
+	is_triggered_only = yes
+	
+	option = {
+		name = "We Will Make You Pay For It"
+		ai_chance = { base = 20}
+		FRA = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ISR
+			}
+			add_ideas = JEWS_AMONG_US
+			
+		}
+	}
+	option = {
+		name = "Let's Not Anger The Jews Among Us"
+		ai_chance = { base = 80}
 	}
 }

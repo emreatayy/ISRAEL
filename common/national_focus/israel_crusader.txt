@@ -27,7 +27,7 @@ focus_tree = {
 		x = 15
 		y = 0
 		relative_position_id = ISR_nationalize_resource_industries
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -47,7 +47,7 @@ focus_tree = {
 		prerequisite = {
 			focus = ISR_what_are_we
 		}
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -67,7 +67,7 @@ focus_tree = {
 		prerequisite = {
 			focus = ISR_visit_papl_state
 		}
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -87,7 +87,7 @@ focus_tree = {
 		prerequisite = {
 			focus = ISR_find_the_king
 		}
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -108,13 +108,22 @@ focus_tree = {
 			focus = ISR_back_to_the_future
 		}
 		mutually_exclusive = { focus = ISR_steal_jordan }
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
-
+		available = {
+				num_of_civilian_factories > 2
+		}
 		completion_reward = {
-
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 455
+					}
+				}
+				ENG = { country_event = { id = ISR.1 } }
+			}
 		}
 	}
 
@@ -128,13 +137,21 @@ focus_tree = {
 			focus = ISR_back_to_the_future
 		}
 		mutually_exclusive = { focus = ISR_purchase_jordan }
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
 		completion_reward = {
-
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 455
+					}
+				}
+				ISR = { country_event = { id = ISR.16 } }
+				ENG = { country_event = { id = ISR.161 } }
+			}
 		}
 	}
 	focus = {
@@ -148,13 +165,24 @@ focus_tree = {
 			focus = ISR_steal_jordan
 		}
 		mutually_exclusive = { focus = ISR_steal_lebanon}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
+		available = {
+			num_of_civilian_factories > 2
+			
+		}
 		completion_reward = {
-
+			if = {
+				limit = {
+					FRA = { 
+						controls_state = 553
+					}
+				}
+				FRA = { country_event = { id = ISR.4 } }
+			}
 		}
 	}
 
@@ -169,13 +197,21 @@ focus_tree = {
 			focus = ISR_purchase_jordan
 		}
 		mutually_exclusive = { focus = ISR_purchase_lebanon}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
 		completion_reward = {
-
+			if = {
+				limit = {
+					FRA = { 
+						controls_state = 553
+					}
+				}
+				ISR = { country_event = { id = ISR.17 } }
+				FRA = { country_event = { id = ISR.171 } }
+			}
 		}
 	}
 
@@ -190,13 +226,23 @@ focus_tree = {
 			focus = ISR_steal_lebanon
 		}
 		mutually_exclusive = { focus = ISR_steal_sinai}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
+		available = {
+			num_of_civilian_factories > 1
+		}
 		completion_reward = {
-
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 453
+					}
+				}
+				ENG = { country_event = { id = ISR.7 } }
+			}
 		}
 	}
 
@@ -211,13 +257,21 @@ focus_tree = {
 			focus = ISR_purchase_lebanon
 		}
 		mutually_exclusive = { focus = ISR_purchase_sinai}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
 		completion_reward = {
-
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 453
+					}
+				}
+				ISR = { country_event = { id = ISR.18 } }
+				ENG = { country_event = { id = ISR.181 } }
+			}
 		}
 	}
 
@@ -232,13 +286,23 @@ focus_tree = {
 			focus = ISR_steal_sinai
 		}
 		mutually_exclusive = { focus = ISR_steal_cyprus}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
+		available = {
+			num_of_civilian_factories > 1
+		}
 		completion_reward = {
-
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 183
+					}
+				}
+				ENG = { country_event = { id = ISR.10 } }
+			}
 		}
 	}
 
@@ -253,13 +317,21 @@ focus_tree = {
 			focus = ISR_steal_sinai
 		}
 		mutually_exclusive = { focus = ISR_purchase_cyprus}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
 		completion_reward = {
-
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 183
+					}
+				}
+				ISR = { country_event = { id = ISR.19 } }
+				ENG = { country_event = { id = ISR.191 } }
+			}
 		}
 	}
 
@@ -274,13 +346,26 @@ focus_tree = {
 			focus = ISR_steal_cyprus
 		}
 		mutually_exclusive = { focus = ISR_steal_syria}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
+		available = {
+			num_of_civilian_factories > 5
+		}
 		completion_reward = {
-
+			if = {
+				limit = {
+					FRA = { 
+						controls_state = 799
+						controls_state = 677
+						controls_state = 680
+						controls_state = 554
+					}
+				}
+				FRA = { country_event = { id = ISR.13 } }
+			}
 		}
 	}
 
@@ -295,13 +380,24 @@ focus_tree = {
 			focus = ISR_steal_cyprus
 		}
 		mutually_exclusive = { focus = ISR_purchase_syria}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
 
 		completion_reward = {
-
+			if = {
+				limit = {
+					FRA = { 
+						controls_state = 799
+						controls_state = 677
+						controls_state = 680
+						controls_state = 554
+					}
+				}
+				ISR = { country_event = { id = ISR.20 } }
+				FRA = { country_event = { id = ISR.201 } }
+			}
 		}
 	}
 
@@ -314,7 +410,7 @@ focus_tree = {
 		prerequisite = {
 			focus = ISR_back_to_the_future
 		}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
@@ -334,7 +430,7 @@ focus_tree = {
 			focus = ISR_icrease_the_army
 		}
 		mutually_exclusive = { focus = ISR_light_tank}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
@@ -354,7 +450,7 @@ focus_tree = {
 			focus = ISR_icrease_the_army
 		}
 		mutually_exclusive = { focus = ISR_med_tank}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
@@ -375,7 +471,7 @@ focus_tree = {
 			focus = ISR_light_tank
 		}
 		mutually_exclusive = { focus = ISR_armor_tank}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
@@ -396,7 +492,7 @@ focus_tree = {
 			focus = ISR_light_tank
 		}
 		mutually_exclusive = { focus = ISR_engine_tank}
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}

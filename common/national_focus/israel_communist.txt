@@ -20,7 +20,7 @@ focus_tree = {
 	continuous_focus_position = { x = 50 y = 10 }
 
 	focus = {
-		id = ISRAEL_revenge
+		id = ISRAEL_communist
 		icon = GFX_goal_generic_construction
 		prerequisite = { focus = }
 		mutually_exclusive = { focus =  }

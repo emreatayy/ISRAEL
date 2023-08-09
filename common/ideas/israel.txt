@@ -1,20 +1,388 @@
 ideas = {
 	country = {
-		ISR_disorganized_army = { 
-			removal_cost = -1
+		ISR_industrial_capacity = { 
 
-			modifier = {
-				mobilization_speed = -0.3
-				
+			allowed = {
+				original_tag = ISR
 			}
-        	}
-		ISR_arab neighborst = { 
-			removal_cost = -1
 
-			modifier = {
-				mobilization_speed = -0.3
+			picture = tur_kemalist_army_officers_powerful_loyal
 				
+			removal_cost = -1
+				
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.1
+				production_factory_max_efficiency_factor = 0.1
+				research_speed_factor = 0.1
+				consumer_goods_factor = -0.05
+				weekly_manpower = 100
 			}
-        	}
+		}
+		ISR_constructor = { 
+
+			allowed = {
+				original_tag = ISR
+			}
+
+			picture = tur_kemalist_army_officers_powerful_loyal
+				
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				production_speed_buildings_factor = 0.15
+				consumer_goods_factor = -0.05
+			}
+		}
+		ISR_jordan_payment = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		
+		ISR_lebanon_payment = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		
+		ISR_sinai_payment = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		
+		ISR_cyprus_payment = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		ISR_syria_payment = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = 0.1
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		
+		#Steal Lands
+		ISR_jordan_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		ENG_jordan_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		ISR_lebanon_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		FRA_lebanon_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		ISR_sinai_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		ENG_sinai_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		ISR_cyprus_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		ENG_cyprus_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		ISR_syria_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		FRA_syria_cost_of_stealing = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		
+		JEWS_AMONG_US = {			
+			picture = liberty_ships_focus
+				
+			allowed = {
+				original_tag = ISR
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+				
+			removal_cost = -1
+				
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.1
+				production_factory_max_efficiency_factor = -0.1
+				research_speed_factor = -0.1
+				consumer_goods_factor = 0.1
+				weekly_manpower = -500
+				stability_weekly = -0.025
+			}
+		}
 	}
 }
