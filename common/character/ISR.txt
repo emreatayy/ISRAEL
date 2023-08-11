@@ -1,6 +1,6 @@
 characters={
-	ISR_Mir_Jafar_Baghirov={
-		name="Mir Jafar Baghirov" 
+	ISR_Yosef_Cohen_Levy={
+		name="Yosef Cohen Levy" 
 		portraits={
 			civilian={
 				large="gfx/leaders/AZR/Portrait_Azerbaijan_Baghirov.dds"

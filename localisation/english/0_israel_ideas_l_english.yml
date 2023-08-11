@@ -1,0 +1,17 @@
+﻿l_english: 
+ ISR_everything_is_so_bad_modifier:0 "Enpower Israel"
+ ISR_eisb_ip_ns_intro:0 "Modify §Y$ISR_everything_is_so_bad_modifier$§! by"
+
+ ISR_division_speed_org_ns_tt:0 "$ISR_eisb_ip_ns_intro$ \n£attacker_speed_texticon  Divisions Speed: §G+15.00%§! \n£organization_texticon  Division Organization: §G+15.00%§! \n\n"
+ ISR_air_attack_defense_ns_tt:0 "$ISR_eisb_ip_ns_intro$ \n£attack_texticon  Air Attack: §G+25.00%§! \n£defence_texticon  Air Defence: §G+25.00%§! \n\n"
+ ISR_air_agility_ws_ns_tt:0 "$ISR_eisb_ip_ns_intro$ \n£attacker_speed_texticon  Agility: §G+25.00%§! \n£war_support_texticon  War Support: §G+15.00%§! \n\n"
+ ISR_division_attack_defense_ns_tt:0 "$ISR_eisb_ip_ns_intro$ \n£attack_texticon  Division Attack: §G+15.00%§! \n£defence_texticon  Division Defense: §G+15.00%§! \n\n"
+ ISR_rgcc_ns_tt:0 "$ISR_eisb_ip_ns_intro$ \n£consumer_goods_texticon  Consumer Goods Factories: §Y-10.0%§! \n£prod_eff_cap  Production Efficiency Cap: §G+15.00%§! \n£prod_eff  Production Efficiency Growth: §G+15.00%§! \n£research_speed_texticon  Research Speed: §G+15.00%§! \n\n"
+ ISR_infrastructure_dockyard_tt:0 "$ISR_eisb_ip_ns_intro$ \n£construction_speed_infrastructure_texticon  §YInfrastructure§! construction speed: §G+15.00%§! \n£construction_speed_dockyard_texticon §YDockyard§! construction speed: §G+15.00%§! \n\n"
+ ISR_mil_civ_factory_ns_tt:0 "$ISR_eisb_ip_ns_intro$ \n£construction_speed_milfactory_texticon §YMilitary Factory§! construction speed: §G+15.00%§! \n£construction_speed_civfactory_texticon  §YCivilian Factory§! construction speed: §G+15.00%§! \n\n"
+ ISR_supply_railway_ns_tt:0 "$ISR_eisb_ip_ns_intro$ \n£construction_speed_supplyhub_texticon  §YSupply Hub construction§! speed: §G+15.00%§! \n£construction_speed_railway_texticon  §YRailway§! construction speed: §G+15.00%§! \n\n"
+ 
+ ISR_greater_israel:0 "Greater Israel"
+ ISR_greater_israel_DEF:0 "Greater Israel"
+ 
+ 

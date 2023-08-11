@@ -18,84 +18,139 @@ focus_tree = {
 		}
 	}
 	
-	continuous_focus_position = { x = 50 y = 10 }
-
+	continuous_focus_position = { x = 100 y = 3250 }
+	shared_focus = ISR_wehrmacht_focus
+	
+	
 	default = no
 
-	shared_focus = ISR_nationalize_resource_industries
-	shared_focus = ISR_army_effort
-	shared_focus = ISR_naval_effort
-	shared_focus = ISR_aviation_effort
-	
-
-    focus = {
-		id = ISR_crusader
+###Focus Start	
+	focus = {
+		id = ISR_legacy_of_israel
 		icon = GFX_GER_Chancellor_Hitler
-		mutually_exclusive = { focus = ISR_democrat = ISR_zionist focus = ISR_communist}
-		x = 7
+		mutually_exclusive = {  
+		}
+		x = 18
 		y = 0
 		cost = 1
-		relative_position_id = ISR_nationalize_resource_industries
+		relative_position_id = 
+		
+		available = {
+
+		}
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ISR_futurof_israel
+		icon = GFX_GER_Chancellor_Hitler
+		mutually_exclusive = {  
+		}
+		x = 21
+		y = 1
+		cost = 1
+		
+		relative_position_id = ISR_legacy_of_israel
+		prerequisite = {
+			focus = ISR_legacy_of_israel
+		} 
+		
+		available = {
+
+		}
+		completion_reward = {
+		}
+	}
+	
+	
+	focus = {
+		id = ISR_crusader
+		icon = GFX_GER_Chancellor_Hitler
+		mutually_exclusive = { 
+			focus = ISR_democrat
+			focus = ISR_zionist 
+			focus = ISR_communist 
+		}
+		x = -6
+		y = 1
+		cost = 1
+		relative_position_id = ISR_futurof_israel
+		prerequisite = {
+			focus = ISR_futurof_israel
+		}
 		
 #		available = {
-#			has_completed_focus = ISR_research_slot2
+#			
 #		}
 		completion_reward = {
 			news_event = ISR_news.1
-			add_country_leader_trait = IV.BALDVIN 
-		    	hidden_effect = {
-		        	load_focus_tree = israel_crusader
-				mark_focus_tree_layout_dirty = yes
-		    	}
+			create_country_leader = {
+				name = "Baldwin V"
+				picture = "SWE_king_gustaf.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = {
+					king_of_israel
+				}
+			}
 		}
 	}	
 	focus = {
 		id = ISR_democrat
 		icon = GFX_GER_Return_of_the_Kaiser
-		mutually_exclusive = { focus = ISR_crusader focus = ISR_zionist focus = ISR_communist }
-		cost = 10.00
-		x = 3
-		y = 0
-		relative_position_id = ISR_crusader
-#		available = {
-#			has_completed_focus = ISR_research_slot2
-#		}
+		mutually_exclusive = { 
+			focus = ISR_crusader 
+			focus = ISR_zionist 
+			focus = ISR_communist 
+		}
+		cost = 1
+		x = 5
+		y = 1
+		relative_position_id = ISR_futurof_israel
+		prerequisite = {
+			focus = ISR_futurof_israel
+		}
+		
 		completion_reward = {
 			news_event = ISR_news.2
-			hidden_effect = {
-				load_focus_tree = israel_democrat
-				mark_focus_tree_layout_dirty = yes
-			}
 		}
 	}
 	focus = {
 		id = ISR_zionist
 		icon = GFX_GER_SS_VT
 		cost = 10.00
-		mutually_exclusive = { focus = ISR_crusader focus = ISR_democrat focus = ISR_communist }
-		x = 3
-		y = 0
-		relative_position_id = ISR_democrat
-#		available = {
-#			has_completed_focus = ISR_research_slot2
-#		}
+		mutually_exclusive = { 
+			focus = ISR_crusader 
+			focus = ISR_democrat
+			focus = ISR_communist 
+		}
+		x = 10
+		y = 1
+		relative_position_id = ISR_futurof_israel
+		prerequisite = {
+			focus = ISR_futurof_israel
+		}
 		completion_reward = {
 			news_event = ISR_news.3
-			hidden_effect = {
-				load_focus_tree = israel_zionist
-				mark_focus_tree_layout_dirty = yes
-			}
 		}
 	}
 	focus = {
 		id = ISR_communist
 		icon = GFX_DDR_Auferstanden_Aus_Ruinen
-		mutually_exclusive = { focus = ISR_crusader focus = ISR_zionist focus = ISR_democrat }
-		x = 3
-		y = 0
-
-		relative_position_id = ISR_zionist
+		mutually_exclusive = { 
+			focus = ISR_crusader 
+			focus = ISR_zionist 
+			focus = ISR_democrat
+		}
+		x = 15
+		y = 1
 		cost = 10
+		
+		relative_position_id = ISR_futurof_israel
+		prerequisite = {
+			focus = ISR_futurof_israel
+		}
 		ai_will_do = {
 			base = 10
 		}
@@ -105,10 +160,1884 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			news_event = ISR_news.4
-			hidden_effect = {
-				load_focus_tree = israel_communist
-				mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+################Crusades	
+	focus = {
+		id = ISR_what_are_we
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 1
+		
+		relative_position_id = ISR_crusader
+		prerequisite = {
+			focus = ISR_crusader
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_visit_papl_state
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_what_are_we
+		prerequisite = {
+			focus = ISR_what_are_we
+		}
+		cost = 1
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_greater_israel
+		icon = GFX_goal_generic_construction
+		x = -3
+		y = 1
+		relative_position_id = ISR_visit_papl_state
+		prerequisite = {
+			focus = ISR_visit_papl_state
+		}
+		cost = 1
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_greater_israel_1
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_greater_israel
+		prerequisite = {
+			focus = ISR_greater_israel
+		}
+		cost = 1
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = ISR_purchase_jordan
+		icon = GFX_goal_generic_construction
+		x = -3
+		y = 1
+		relative_position_id = ISR_greater_israel_1
+		prerequisite = {
+			focus = ISR_greater_israel_1
+		}
+		mutually_exclusive = { focus = ISR_steal_jordan }
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+				num_of_civilian_factories > 2
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 455
+					}
+				}
+				ENG = { country_event = { id = ISR.1 } }
 			}
 		}
 	}
+
+	focus = {
+		id = ISR_steal_jordan
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		relative_position_id = ISR_greater_israel_1
+		prerequisite = {
+			focus = ISR_greater_israel_1
+		}
+		mutually_exclusive = { focus = ISR_purchase_jordan }
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 455
+					}
+				}
+				ISR = { country_event = { id = ISR.16 } }
+				ENG = { country_event = { id = ISR.161 } }
+			}
+		}
+	}
+	focus = {
+		id = ISR_purchase_lebanon
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_purchase_jordan
+		prerequisite = {
+			focus = ISR_purchase_jordan
+			focus = ISR_steal_jordan
+		}
+		mutually_exclusive = { focus = ISR_steal_lebanon}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			num_of_civilian_factories > 2
+			
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					FRA = { 
+						controls_state = 553
+					}
+				}
+				FRA = { country_event = { id = ISR.4 } }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_steal_lebanon
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_steal_jordan
+		prerequisite = {
+			focus = ISR_steal_jordan
+			focus = ISR_purchase_jordan
+		}
+		mutually_exclusive = { focus = ISR_purchase_lebanon}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					FRA = { 
+						controls_state = 553
+					}
+				}
+				ISR = { country_event = { id = ISR.17 } }
+				FRA = { country_event = { id = ISR.171 } }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_purchase_sinai
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_purchase_lebanon
+		prerequisite = {
+			focus = ISR_purchase_lebanon
+			focus = ISR_steal_lebanon
+		}
+		mutually_exclusive = { focus = ISR_steal_sinai}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			num_of_civilian_factories > 1
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 453
+					}
+				}
+				ENG = { country_event = { id = ISR.7 } }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_steal_sinai
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_steal_lebanon
+		prerequisite = {
+			focus = ISR_steal_lebanon
+			focus = ISR_purchase_lebanon
+		}
+		mutually_exclusive = { focus = ISR_purchase_sinai}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 453
+					}
+				}
+				ISR = { country_event = { id = ISR.18 } }
+				ENG = { country_event = { id = ISR.181 } }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_purchase_cyprus
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_purchase_sinai
+		prerequisite = {
+			focus = ISR_purchase_sinai
+			focus = ISR_steal_sinai
+		}
+		mutually_exclusive = { focus = ISR_steal_cyprus}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			num_of_civilian_factories > 1
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 183
+					}
+				}
+				ENG = { country_event = { id = ISR.10 } }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_steal_cyprus
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_steal_sinai
+		prerequisite = {
+			focus = ISR_purchase_sinai
+			focus = ISR_steal_sinai
+		}
+		mutually_exclusive = { focus = ISR_purchase_cyprus}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					ENG = { 
+						controls_state = 183
+					}
+				}
+				ISR = { country_event = { id = ISR.19 } }
+				ENG = { country_event = { id = ISR.191 } }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_purchase_syria
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_purchase_cyprus
+		prerequisite = {
+			focus = ISR_purchase_cyprus
+			focus = ISR_steal_cyprus
+		}
+		mutually_exclusive = { focus = ISR_steal_syria}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			num_of_civilian_factories > 5
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					FRA = { 
+						controls_state = 799
+						controls_state = 677
+						controls_state = 680
+						controls_state = 554
+					}
+				}
+				FRA = { country_event = { id = ISR.13 } }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_steal_syria
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_steal_cyprus
+		prerequisite = {
+			focus = ISR_purchase_cyprus
+			focus = ISR_steal_cyprus
+		}
+		mutually_exclusive = { focus = ISR_purchase_syria}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					FRA = { 
+						controls_state = 799
+						controls_state = 677
+						controls_state = 680
+						controls_state = 554
+					}
+				}
+				ISR = { country_event = { id = ISR.20 } }
+				FRA = { country_event = { id = ISR.201 } }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_attack_iraq
+		icon = GFX_goal_generic_construction
+		x = 2
+		y = 1
+		relative_position_id = ISR_greater_israel_1
+		prerequisite = {
+			focus = ISR_greater_israel_1
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = IRQ
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_attack_saudi
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_attack_iraq
+		prerequisite = {
+			focus = ISR_attack_iraq
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SAU
+			}
+		}
+	}
+	focus = {
+		id = ISR_attack_iran
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_attack_saudi
+		prerequisite = {
+			focus = ISR_attack_saudi
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = PER
+			}
+		}
+	}
+	focus = {
+		id = ISR_attack_turkey
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_attack_iran
+		prerequisite = {
+			focus = ISR_attack_iran
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = TUR
+			}
+		}
+	}
+	focus = {
+		id = ISR_gain_core
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ISR_attack_turkey
+		prerequisite = {
+			focus = ISR_attack_turkey
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			854 = {add_core_of = ISR}
+			855 ={add_core_of = ISR}
+			679 ={add_core_of = ISR}
+			856 ={add_core_of = ISR}
+			857 ={add_core_of = ISR}
+			292 ={add_core_of = ISR}
+			858 ={add_core_of = ISR}
+			678 ={add_core_of = ISR}
+			859 ={add_core_of = ISR}
+			675 ={add_core_of = ISR}
+			291 ={add_core_of = ISR}
+			679 ={add_core_of = ISR}
+			293 ={add_core_of = ISR}
+			659 ={add_core_of = ISR}
+			294 ={add_core_of = ISR}
+			658 ={add_core_of = ISR}
+			765 ={add_core_of = ISR}
+			656 ={add_core_of = ISR}
+			419 ={add_core_of = ISR}
+			421 ={add_core_of = ISR}
+			420 ={add_core_of = ISR}
+			266 ={add_core_of = ISR}
+			417 ={add_core_of = ISR}
+			413 ={add_core_of = ISR}
+			411 ={add_core_of = ISR}
+			418 ={add_core_of = ISR}
+			412 ={add_core_of = ISR}
+			410 ={add_core_of = ISR}
+			414 ={add_core_of = ISR}
+			416 ={add_core_of = ISR}
+			352 ={add_core_of = ISR}
+			350 ={add_core_of = ISR}
+			344 ={add_core_of = ISR}
+			345 ={add_core_of = ISR}
+			342 ={add_core_of = ISR}
+			800 ={add_core_of = ISR}
+			353 ={add_core_of = ISR}
+			349 ={add_core_of = ISR}
+			348 ={add_core_of = ISR}
+			346 ={add_core_of = ISR}
+			343 ={add_core_of = ISR}
+			339 ={add_core_of = ISR}
+			49 = {add_core_of = ISR}
+			798 ={add_core_of = ISR}
+			354 ={add_core_of = ISR}
+			355 ={add_core_of = ISR}
+			356 ={add_core_of = ISR}
+			347 ={add_core_of = ISR}
+			340 ={add_core_of = ISR}
+			797 ={add_core_of = ISR}
+			341 = {add_core_of = ISR}
+		}
+	}
+	
+	focus = {
+		id = ISR_new_israel
+		icon = GFX_goal_generic_construction
+		x = -2
+		y = 1
+		relative_position_id = ISR_gain_core
+		prerequisite = {
+			focus = ISR_gain_core
+		}
+		prerequisite = {
+			focus = ISR_purchase_syria
+		}
+		prerequisite = {
+			focus = ISR_steal_syria
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			set_cosmetic_tag = ISR_greater_israel
+            
+		}
+	}
+	
+			
+	
+	focus = {
+		id = ISR_tank_researching
+		icon = GFX_goal_generic_construction
+		x = 4
+		y = 1
+		relative_position_id = ISR_visit_papl_state
+		prerequisite = {
+			focus = ISR_visit_papl_state
+		}
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SAU
+			}
+		}
+	}
+	
+	
+	
+	
+############################Economic Rise
+	focus =  {
+		id = ISR_nationalize_resource_industries
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 7
+	
+#		relative_position_id = ISR_oberkommando_des_heeres
+#		prerequisite = {
+#			focus = ISR_oberkommando_des_heeres
+#		}
+	
+		completion_reward = {
+			454 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			
+			}
+		}
+	}
+
+	focus =  {
+		id = ISR_economy_aggrement_with_england
+		icon = GFX_goal_big_news
+		cost = 6
+		x = -2
+		y = 1
+		relative_position_id = ISR_nationalize_resource_industries
+		prerequisite = {
+			focus = ISR_nationalize_resource_industries
+		}
+		completion_reward = {
+			add_opinion_modifier = { 
+				target = ENG
+				modifier = huge_increase 
+			}
+			454 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			126 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_economy_aggrement_with_usa
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_nationalize_resource_industries
+		prerequisite = {
+			focus = ISR_nationalize_resource_industries
+		}
+		completion_reward = {
+			add_opinion_modifier = { 
+				target = USA
+				modifier = huge_increase 
+			}
+			454 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			361= {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_economy_aggrement_with_france
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 2
+		y = 1
+		relative_position_id = ISR_nationalize_resource_industries
+		prerequisite = {
+			focus = ISR_nationalize_resource_industries
+		}
+		completion_reward = {
+			add_opinion_modifier = { 
+				target = FRA
+				modifier = huge_increase 
+			}
+			454 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			16 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_economy_aids
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_economy_aggrement_with_england
+		prerequisite = {
+			focus = ISR_economy_aggrement_with_england
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_political_power = 50
+				add_stability = 0.1
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_military_base
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_economy_aids
+		prerequisite = {
+			focus = ISR_economy_aids
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_man
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_military_base
+		prerequisite = {
+			focus = ISR_military_base
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_ideas = ISR_new_army
+		}
+	}
+	
+	focus =  {
+		id = ISR_industrial_capacity
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_economy_aggrement_with_usa
+		prerequisite = {
+			focus = ISR_economy_aggrement_with_usa
+		}
+		completion_reward = {
+			add_ideas = ISR_industrial_capacity
+		}
+	}
+	
+	focus =  {
+		id = ISR_constructor
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_industrial_capacity
+		prerequisite = {
+			focus = ISR_industrial_capacity
+		}
+		completion_reward = {
+			add_ideas = ISR_constructor
+		}
+	}
+	
+	focus =  {
+		id = ISR_research_slot1
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_constructor
+		prerequisite = {
+			focus = ISR_constructor
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus =  {
+		id = ISR_research_slot2
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_research_slot1
+		available = {
+				num_of_factories > 30
+		}
+		prerequisite = {
+			focus = ISR_man	
+		}
+		prerequisite = {
+			focus = ISR_research_slot1	
+		}
+		prerequisite = {
+			focus = ISR_aluminium	
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus =  {
+		id = ISR_steel
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_economy_aggrement_with_france
+		prerequisite = {
+			focus = ISR_economy_aggrement_with_france
+		}
+		completion_reward = {
+			454 = {
+				add_resource = {
+					type = steel
+					amount = 12
+				}
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_oil
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_steel
+		prerequisite = {
+			focus = ISR_steel
+		}
+		completion_reward = {
+			454 = {
+				add_resource = {
+					type = oil
+					amount = 45
+				}
+				add_resource = {
+					type = rubber
+					amount =14
+				}
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_aluminium
+		icon = GFX_goal_big_news
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = ISR_oil
+		prerequisite = {
+			focus = ISR_oil
+		}
+		completion_reward = {
+			454 = {
+				add_resource = {
+					type = aluminium
+					amount = 29
+				}
+			}
+		}
+	}	
+	
+	focus =  {
+		id = ISR_enpower_israel
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_legacy_of_israel
+		prerequisite = {
+			focus = ISR_legacy_of_israel
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}	
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}	
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_1
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = -4
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel
+		prerequisite = {
+			focus = ISR_enpower_israel
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}		
+			}
+			
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_10
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x =-2
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_1
+		prerequisite = {
+			focus = ISR_enpower_israel_1
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_mil_civ_factory_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_arms_factory_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_industrial_complex_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_11
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_1
+		prerequisite = {
+			focus = ISR_enpower_israel_1
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_supply_railway_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_supply_node_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_rail_way_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_12
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 2
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_1
+		prerequisite = {
+			focus = ISR_enpower_israel_1
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_infrastructure_dockyard_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_infrastructure_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_dockyard_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_13
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_10
+		prerequisite = {
+			focus = ISR_enpower_israel_10
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_mil_civ_factory_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_arms_factory_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_industrial_complex_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_14
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_11
+		prerequisite = {
+			focus = ISR_enpower_israel_11
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_supply_railway_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_supply_node_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_rail_way_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_15
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_12
+		prerequisite = {
+			focus = ISR_enpower_israel_12
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_infrastructure_dockyard_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_infrastructure_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_dockyard_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_16
+		icon = GFX_goal_big_news
+		cost = 5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_13
+		prerequisite = {
+			focus = ISR_enpower_israel_13
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_mil_civ_factory_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_arms_factory_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_industrial_complex_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_17
+		icon = GFX_goal_big_news
+		cost = 5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_14
+		prerequisite = {
+			focus = ISR_enpower_israel_14
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_supply_railway_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_supply_node_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_rail_way_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_18
+		icon = GFX_goal_big_news
+		cost = 5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_15
+		prerequisite = {
+			focus = ISR_enpower_israel_15
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_infrastructure_dockyard_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_production_speed_infrastructure_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_speed_dockyard_factor = 0.15 }
+			}
+		}
+	}
+	##########################################
+	focus =  {
+		id = ISR_enpower_israel_2
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel
+		prerequisite = {
+			focus = ISR_enpower_israel
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 5
+			}
+			
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_20
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_2
+		prerequisite = {
+			focus = ISR_enpower_israel_2
+		}
+		
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_rgcc_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_consumer_goods_factor = -0.1 }
+				add_to_variable = { ISR_pi_production_factory_max_efficiency_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_factory_efficiency_gain_factor = 0.15 }
+				add_to_variable = { ISR_pi_research_speed_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_21
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_20
+		prerequisite = {
+			focus = ISR_enpower_israel_20
+		}
+		
+		
+		completion_reward = {
+			custom_effect_tooltip = ISR_rgcc_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_consumer_goods_factor = -0.1 }
+				add_to_variable = { ISR_pi_production_factory_max_efficiency_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_factory_efficiency_gain_factor = 0.15 }
+				add_to_variable = { ISR_pi_research_speed_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_22
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_21
+		prerequisite = {
+			focus = ISR_enpower_israel_21
+		}
+		
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_rgcc_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_consumer_goods_factor = -0.1 }
+				add_to_variable = { ISR_pi_production_factory_max_efficiency_factor = 0.15 }
+				add_to_variable = { ISR_pi_production_factory_efficiency_gain_factor = 0.15 }
+				add_to_variable = { ISR_pi_research_speed_factor = 0.15 }
+			}
+		}
+	}
+	#####################################
+	focus =  {
+		id = ISR_enpower_israel_3
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 4
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel
+		prerequisite = {
+			focus = ISR_enpower_israel
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_30
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x =-2
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_3
+		prerequisite = {
+			focus = ISR_enpower_israel_3
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_division_speed_org_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_army_speed_factor = 0.15 }
+				add_to_variable = { ISR_pi_army_org_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_31
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_3
+		prerequisite = {
+			focus = ISR_enpower_israel_3
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_air_agility_ws_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_air_agility_factor = 0.25 }
+				add_to_variable = { ISR_pi_war_support_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_32
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 2
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_3
+		prerequisite = {
+			focus = ISR_enpower_israel_3
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_division_attack_defense_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_army_attack_factor = 0.15 }
+				add_to_variable = { ISR_pi_army_defence_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_33
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_30
+		prerequisite = {
+			focus = ISR_enpower_israel_30
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = ISR_division_speed_org_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_army_speed_factor = 0.15 }
+				add_to_variable = { ISR_pi_army_org_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_34
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_31
+		prerequisite = {
+			focus = ISR_enpower_israel_31
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = ISR_air_agility_ws_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_air_agility_factor = 0.25 }
+				add_to_variable = { ISR_pi_war_support_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_35
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_32
+		prerequisite = {
+			focus = ISR_enpower_israel_32
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = ISR_division_attack_defense_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_army_attack_factor = 0.15 }
+				add_to_variable = { ISR_pi_army_defence_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_36
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_33
+		prerequisite = {
+			focus = ISR_enpower_israel_33
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_division_speed_org_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_army_speed_factor = 0.15 }
+				add_to_variable = { ISR_pi_army_org_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_37
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_34
+		prerequisite = {
+			focus = ISR_enpower_israel_34
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_air_agility_ws_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_air_agility_factor = 0.25 }
+				add_to_variable = { ISR_pi_war_support_factor = 0.15 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_38
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_35
+		prerequisite = {
+			focus = ISR_enpower_israel_35
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_division_attack_defense_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_army_attack_factor = 0.15 }
+				add_to_variable = { ISR_pi_army_defence_factor = 0.15 }
+			}
+		}
+	}
+	###########################
+	focus =  {
+		id = ISR_enpower_israel_4
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_22
+		prerequisite = {
+			focus = ISR_enpower_israel_16
+		}
+		prerequisite = {
+			focus = ISR_enpower_israel_17
+		}
+		prerequisite = {
+			focus = ISR_enpower_israel_18
+		}
+		prerequisite = {
+			focus = ISR_enpower_israel_22
+		}
+		prerequisite = {
+			focus = ISR_enpower_israel_36
+		}
+		prerequisite = {
+			focus = ISR_enpower_israel_37
+		}
+		prerequisite = {
+			focus = ISR_enpower_israel_38
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_air_attack_defense_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_air_attack_factor = 0.25 }
+				add_to_variable = { ISR_pi_air_defence_factor = 0.25 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_40
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_4
+		prerequisite = {
+			focus = ISR_enpower_israel_4
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_air_attack_defense_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_air_attack_factor = 0.25 }
+				add_to_variable = { ISR_pi_air_defence_factor = 0.25 }
+			}
+		}
+	}
+	
+	focus =  {
+		id = ISR_enpower_israel_41
+		icon = GFX_goal_big_news
+		cost = 2.5
+		x = 0
+		y = 1
+		
+		relative_position_id = ISR_enpower_israel_40
+		prerequisite = {
+			focus = ISR_enpower_israel_40
+		}
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			custom_effect_tooltip = ISR_air_attack_defense_ns_tt
+			hidden_effect = {
+				add_to_variable = { ISR_pi_air_attack_factor = 0.25 }
+				add_to_variable = { ISR_pi_air_defence_factor = 0.25 }
+			}
+		}
+	}
+
+		
+	
+	focus =  {
+		id = ISR_aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		x = 0
+		y = 1
+		cost = 10
+		relative_position_id = ISR_enpower_israel_41
+		prerequisite = {
+			focus = ISR_enpower_israel_41
+		}
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+		available_if_capitulated = yes
+		available = {
+			num_of_factories > 25
+		}
+	
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = cat_strategic_bomber
+				bonus = 1.5
+				uses = 2
+				category = plane_modules_tech	
+			}
+			
+		}
+	}
+	focus =  {
+		id = ISR_fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = ISR_aviation_effort }
+		mutually_exclusive = { focus = ISR_strat_focus }
+		x = -1
+		y = 1
+		relative_position_id = ISR_aviation_effort
+		cost = 5
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				ahead_reduction = 5
+				uses = 2
+				category = cat_heavy_fighter
+			}
+		}
+	}
+	focus =  {
+		id = ISR_strat_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = ISR_aviation_effort }
+		mutually_exclusive = { focus = ISR_fighter_focus }
+		x = 1
+		y = 1
+		relative_position_id = ISR_aviation_effort
+		cost = 5
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				ahead_reduction = 5
+				uses = 2
+				category = cat_strategic_bomber
+			}
+		}
+	}
+	focus =  {
+		id = ISR_cas_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = ISR_fighter_focus focus = ISR_strat_focus }
+		mutually_exclusive = { focus = ISR_naval_focus }
+		x = -1
+		y = 2
+		relative_position_id = ISR_aviation_effort
+		cost = 5
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				ahead_reduction = 1.2
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+	focus =  {
+		id = ISR_naval_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = {focus = ISR_strat_focus focus = ISR_fighter_focus  }
+		mutually_exclusive = { focus = ISR_cas_focus }
+		x = 1
+		y = 2
+		relative_position_id = ISR_aviation_effort
+		cost = 5
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = naval_bonus
+				ahead_reduction = 1.2
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+	focus =  {
+		id = ISR_aviation_effort_2
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = ISR_naval_focus focus = ISR_cas_focus }
+		x = -1
+		y = 2
+		relative_position_id = ISR_strat_focus
+		cost = 10
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1
+				uses = 1
+				category = plane_modules_tech	
+			}	
+		}
+	} 
 }

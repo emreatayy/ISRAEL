@@ -60,10 +60,26 @@ set_popularities = {
 	fascism = 25
 	neutrality = 25
 }
+set_variable = { ISR_pi_production_factory_efficiency_gain_factor = -0.3 }
+set_variable = { ISR_pi_production_factory_max_efficiency_factor = -0.3 }
+set_variable = { ISR_pi_research_speed_factor = -0.3 }
+set_variable = { ISR_pi_consumer_goods_factor = 0.2 }
+set_variable = { ISR_pi_war_support_factor = -0.3 }
+set_variable = { ISR_pi_army_org_factor = -0.3 }
+set_variable = { ISR_pi_army_speed_factor = -0.3 }
+set_variable = { ISR_pi_army_attack_factor	 = -0.3 }
+set_variable = { ISR_pi_army_defence_factor = -0.3 }
+set_variable = { ISR_pi_production_speed_infrastructure_factor = -0.3 }
+set_variable = { ISR_pi_production_speed_rail_way_factor = -0.3 }
+set_variable = { ISR_pi_production_speed_supply_node_factor = -0.3 }
+set_variable = { ISR_pi_production_speed_industrial_complex_factor = -0.3 }
+set_variable = { ISR_pi_production_speed_arms_factory_factor = -0.3 }
+set_variable = { ISR_pi_production_speed_dockyard_factor = -0.3 }
+set_variable = { ISR_pi_air_attack_factor = -0.5 }
+set_variable = { ISR_pi_air_defence_factor = -0.5 }
+set_variable = { ISR_pi_air_agility_factor = -0.5 }
 
-add_ideas = {
-	ISR_disorganized_army
-}
+add_dynamic_modifier = { modifier = ISR_bad_everything_dynamic_modifier }
 
 #democratic = conservatism, liberalism, socialism
 #communism = marxism, leninism, stalinism, anti_revisionism, anarchist_communism
@@ -109,3 +125,69 @@ create_country_leader = {
 		#
 	}
 }
+
+ecruit_character = ISR_per_albin_hansson
+recruit_character = ISR_sven_olov_lindholm
+recruit_character = ISR_sven_linderot
+recruit_character = ISR_axel_pehrssonbramstorp
+recruit_character = ISR_folke_hogberg
+recruit_character = ISR_erik_af_edholm
+recruit_character = ISR_claes_lindstrom
+recruit_character = ISR_per_sylvan
+recruit_character = ISR_gosta_ehrensvard
+recruit_character = ISR_torsten_friis
+recruit_character = ISR_erik_palmstierna
+recruit_character = ISR_helge_stromback
+recruit_character = ISR_helge_jung
+recruit_character = ISR_olof_thornell
+recruit_character = ISR_bengt_nordenskiold
+recruit_character = ISR_ivar_holmquist
+recruit_character = ISR_fabian_tamm
+recruit_character = ISR_charles_de_champs
+recruit_character = ISR_axel_rappe
+recruit_character = ISR_oscar_nygren
+recruit_character = ISR_axel_ljungdahl
+recruit_character = ISR_archibald_douglas
+recruit_character = ISR_ernst_wigforss
+recruit_character = ISR_thorwald_bergquist
+recruit_character = ISR_osten_unden
+#######
+#recruit_character = ISR_ivar_rhedin
+#recruit_character = ISR_gustav_v
+
+
+#Generals
+recruit_character = ISR_cm_bjorkman
+recruit_character = ISR_carl_e_knos
+recruit_character = ISR_anders_erik_svahn
+recruit_character = ISR_oskar_heden
+recruit_character = ISR_karl_nystrom
+recruit_character = ISR_thord_bonde
+recruit_character = ISR_carl_august_ehrensvard
+recruit_character = ISR_ernst_linder
+
+#Airforce Chief
+#recruit_character = ISR_goring
+
+#Theorist
+#recruit_character = ISR_carl_gustaf_von_rosen
+#recruit_character = ISR_arne_beurling
+#recruit_character = ISR_gustav_boestad
+
+#Military High Command
+recruit_character = ISR_gosta_wetterhall
+recruit_character = ISR_martin_ekstrom
+
+#Political Advisors
+recruit_character = ISR_per_edvin_skold
+recruit_character = ISR_axel_wenner-gren
+recruit_character = ISR_carl_petersen
+#recruit_character = ISR_thede_palm
+recruit_character = ISR_birger_furugard
+recruit_character = ISR_nils_flyg
+recruit_character = ISR_folke_bernadotte
+#recruit_character = ISR_per_engdahl
+recruit_character = ISR_tage_erlander
+recruit_character = ISR_hilding_hagberg
+recruit_character = ISR_gustaf_adolf
+recruit_character = ISR_raoul_wallenberg

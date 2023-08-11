@@ -1,1563 +1,663 @@
-####################### Economy
-shared_focus =  {
-	id = ISR_nationalize_resource_industries
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 5
-	y = 3
-	completion_reward = {
-		454 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-			add_political_power = 100
-		}
-	}
-}
+shared_focus = {
+		id = ISR_wehrmacht_focus
+		icon = GFX_ISR_Wehrmacht
+		x = 0
+		y = 0
+		cost = 6
+		available_if_capitulated = yes
+		dynamic = yes
 
-shared_focus =  {
-	id = ISR_economy_aggrement_with_england
-	icon = GFX_goal_big_news
-	cost = 6
-	x = -2
-	y = 1
-	relative_position_id = ISR_nationalize_resource_industries
-	prerequisite = {
-		focus = ISR_nationalize_resource_industries
-	}
-	completion_reward = {
-		454 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-			add_political_power = 100
+		completion_reward = {
+			add_command_power = 25
+			army_experience = 25
+			air_experience = 10
+			navy_experience = 10	
 		}
-		126 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_the_heer
+		icon = GFX_ISR_Heer
+		prerequisite = { focus = ISR_wehrmacht_focus }
+		available = {}
+		dynamic = yes
+		x = 0
+		y = 1
+		cost = 6
+		relative_position_id = ISR_wehrmacht_focus
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
 			}
 		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
 	}
-}
 
-shared_focus =  {
-	id = ISR_economy_aggrement_with_usa
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_nationalize_resource_industries
-	prerequisite = {
-		focus = ISR_nationalize_resource_industries
-	}
-	completion_reward = {
-		454 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-			add_political_power = 100
-		}
-		361= {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
+	shared_focus = {
+		id = ISR_Panzerwaffe
+		icon = GFX_ISR_Panzertruppen
+		prerequisite = { focus = ISR_the_heer }
+		available = {}
+		x = 2
+		y = 1
+		cost = 8
+		relative_position_id = ISR_the_heer
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 20
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_mobile_warfare
 			}
 		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
 	}
-}
 
-shared_focus =  {
-	id = ISR_economy_aggrement_with_france
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 2
-	y = 1
-	relative_position_id = ISR_nationalize_resource_industries
-	prerequisite = {
-		focus = ISR_nationalize_resource_industries
-	}
-	completion_reward = {
-		454 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-			add_political_power = 100
-		}
-		16 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
+	shared_focus = {
+		id = ISR_build_up_panzer_divisions
+		icon = GFX_ISR_Panzerkorps
+		prerequisite = { focus = ISR_Panzerwaffe }
+		available = {}
+		x = 0
+		y = 1
+		cost = 6
+		relative_position_id = ISR_Panzerwaffe
+		
+		completion_reward = {
+			division_template = {
+				name = "Med-Tank"
+				division_names_group = ISR_Arm_01
+				priority = 2
 
-shared_focus =  {
-	id = ISR_economy_aids
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_economy_aggrement_with_england
-	prerequisite = {
-		focus = ISR_economy_aggrement_with_england
-	}
-	completion_reward = {
-		454 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-			add_political_power = 50
-			add_stability = 0.1
-		}
-	}
-}
+				regiments = {
+					light_armor = { x = 0 y = 0 }
+					light_armor = { x = 0 y = 1 }
+					medium_armor = { x = 1 y = 0 }
+					medium_armor = { x = 1 y = 1 }
+					
+					motorized = { x = 2 y = 0 }
+					motorized = { x = 2 y = 1 }
+					motorized = { x = 2 y = 2 }
 
-shared_focus =  {
-	id = ISR_military_base
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_economy_aids
-	prerequisite = {
-		focus = ISR_economy_aids
-	}
-	completion_reward = {
-		454 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
-		}
-		add_war_support = -0.02
-	}
-}
-
-shared_focus =  {
-	id = ISR_man
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_military_base
-	prerequisite = {
-		focus = ISR_military_base
-	}
-	completion_reward = {
-		add_war_support = 0.1
-		add_ideas = ISR_new_army
-	}
-}
-
-shared_focus =  {
-	id = ISR_industrial_capacity
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_economy_aggrement_with_usa
-	prerequisite = {
-		focus = ISR_economy_aggrement_with_usa
-	}
-	completion_reward = {
-		add_ideas = ISR_industrial_capacity
-	}
-}
-
-shared_focus =  {
-	id = ISR_constructor
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_industrial_capacity
-	prerequisite = {
-		focus = ISR_industrial_capacity
-	}
-	completion_reward = {
-		add_ideas = ISR_constructor
-	}
-}
-
-shared_focus =  {
-	id = ISR_research_slot1
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_constructor
-	prerequisite = {
-		focus = ISR_constructor
-	}
-	completion_reward = {
-		add_research_slot = 1
-	}
-}
-
-shared_focus =  {
-	id = ISR_research_slot2
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_research_slot1
-	available = {
-			num_of_factories > 30
-	}
-	prerequisite = {
-		focus = ISR_man	
-	}
-	prerequisite = {
-		focus = ISR_research_slot1	
-	}
-	prerequisite = {
-		focus = ISR_aluminium	
-	}
-	completion_reward = {
-		add_research_slot = 1
-	}
-}
-
-shared_focus =  {
-	id = ISR_steel
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_economy_aggrement_with_france
-	prerequisite = {
-		focus = ISR_economy_aggrement_with_france
-	}
-	completion_reward = {
-		454 = {
-			add_resource = {
-				type = steel
-				amount = 12
-			}
-		}
-	}
-}
-
-shared_focus =  {
-	id = ISR_oil
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_steel
-	prerequisite = {
-		focus = ISR_steel
-	}
-	completion_reward = {
-		454 = {
-			add_resource = {
-				type = oil
-				amount = 45
-			}
-			add_resource = {
-				type = rubber
-				amount =14
-			}
-		}
-	}
-}
-
-shared_focus =  {
-	id = ISR_aluminium
-	icon = GFX_goal_big_news
-	cost = 6
-	x = 0
-	y = 1
-	relative_position_id = ISR_oil
-	prerequisite = {
-		focus = ISR_oil
-	}
-	completion_reward = {
-		454 = {
-			add_resource = {
-				type = aluminium
-				amount = 29
-			}
-		}
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-###Army###
-	
-shared_focus = {
-	id = ISR_army_effort
-	icon = GFX_goal_generic_allies_build_infantry
-	x = 5
-	y = 10
-	cost = 10
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	completion_reward = {
-		army_experience = 10
-		add_doctrine_cost_reduction = {
-			name = land_doc_bonus
-			cost_reduction = 0.5
-			uses = 1
-			category = land_doctrine
-		} 
-		set_technology = {
-			camelry = 1 
-		} 
-	}
-}
-	
-shared_focus = {
-	id = ISR_army_effort_2 
-	icon = GFX_focus_generic_manpower
-	prerequisite = { focus = ISR_army_effort }
-	x = -2
-	y = 1
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_ideas = CON_Command
-	}
-}   
-
-shared_focus = {
-	id = ISR_army_inf_1
-	icon = GFX_goal_generic_allies_build_infantry
-	prerequisite = { focus = ISR_army_effort_2  }
-	mutually_exclusive = { focus = ISR_army_inf_2 }
-	x = -3
-	y = 2
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = infantry_artillery_bonus
-			bonus = 1.0
-			uses = 1
-			category = infantry_weapons
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_army_inf_2
-	icon = GFX_goal_generic_army_artillery2
-	prerequisite = { focus = ISR_army_effort_2  }
-	mutually_exclusive = { focus = ISR_army_inf_1 }
-	x = -1
-	y = 2
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = infantry_artillery_bonus
-			bonus = 1.0
-			uses = 1
-			category = artillery
-		}
-	}
-}
-shared_focus = {
-	id = ISR_army_inf_3
-	icon = GFX_focus_RAJ_lions_of_the_great_war
-	prerequisite = { focus = ISR_army_inf_1 focus = ISR_army_inf_2 }
-	mutually_exclusive = { focus = ISR_army_inf_4 }
-	x = -3
-	y = 3
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = infantry_artillery_bonus
-			bonus = 0.75
-			uses = 2
-			category = infantry_weapons
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_army_inf_4
-	icon = GFX_goal_generic_army_artillery2
-	prerequisite = { focus = ISR_army_inf_2 focus = ISR_army_inf_1 }
-	mutually_exclusive = { focus = ISR_army_inf_3 }
-	x = -1
-	y = 3
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = infantry_artillery_bonus
-			bonus = 0.75
-			uses = 2
-			category = artillery
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_army_inf_7
-	icon = GFX_focus_generic_commonwealth_build_infantry
-	prerequisite = { focus = ISR_army_inf_3 focus = ISR_army_inf_4 }
-	x = -2
-	y = 4
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = night_vision_bonus
-			ahead_reduction = 1.5
-			uses = 2
-			category = night_vision
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_army_effort_3
-	icon = GFX_focus_generic_military_academy
-	prerequisite = { focus = ISR_army_effort }
-	mutually_exclusive = { focus = ISR_army_effort_4 }
-	x = 1
-	y = 1
-	cost = 10
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_ideas = Old_army 
-		add_doctrine_cost_reduction = {
-			name = land_doc_bonus
-			cost_reduction = 0.5
-			uses = 1
-			category = land_doctrine
-		} 
-	}
-}
-
-shared_focus = {
-	id = ISR_army_old_1     
-	icon = GFX_goal_generic_cavalry
-	prerequisite = { focus = ISR_army_effort_4  focus = ISR_army_effort_3}
-	mutually_exclusive = { focus = ISR_army_new_1 }
-	x = 1
-	y = 2
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = motorized_bonus
-			bonus = 1
-			uses = 2
-			technology = motorised_infantry
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_army_old_4
-	icon = GFX_goal_generic_cavalry
-	prerequisite = { focus = ISR_army_old_1 focus = ISR_army_new_1}
-	mutually_exclusive = { focus = ISR_army_new_4 }
-	x = 1
-	y = 3
-	cost = 10
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_ideas = Old_army_2
-	}
-}
-
-shared_focus = {
-	id = ISR_army_effort_4
-	icon = GFX_focus_generic_license_production
-	prerequisite = { focus = ISR_army_effort}
-	mutually_exclusive = { focus = ISR_army_effort_3 }
-	x = 3
-	y = 1
-	cost = 10
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_ideas = Tank_con
-		add_doctrine_cost_reduction = {
-			name = land_doc_bonus
-			cost_reduction = 0.5
-			uses = 1
-			category = land_doctrine
-		} 
-	}
-}
-
-shared_focus = {
-	id = ISR_army_new_1
-	icon = GFX_focus_generic_treaty
-	prerequisite = { focus = ISR_army_effort_4  focus = ISR_army_effort_3}
-	mutually_exclusive = { focus = ISR_army_old_1 }
-	x = 3
-	y = 2
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = armor_bonus
-			bonus = 1.00
-			uses = 2
-			category = armor
-		}
-	 
-	}
-}
-
-shared_focus = {
-	id = ISR_army_new_4
-	icon = GFX_focus_generic_license_production
-	prerequisite = { focus = ISR_army_new_1 focus = ISR_army_old_1}
-	mutually_exclusive = { focus = ISR_army_old_4 }
-	x = 3
-	y = 3
-	cost = 10
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_ideas = Tank_con_2
-	}
-}
-
-shared_focus = {
-	id = ISR_army_old_2
-	icon = GFX_goal_generic_construction2
-	prerequisite = { focus = ISR_army_old_4  focus = ISR_army_new_4}
-	
-	x = 2
-	y = 4
-	cost = 5
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = engineers_tech_bonus
-			bonus = 1.0
-			uses = 1
-			category = engineers_tech
-		}
-		add_tech_bonus = {
-			name = recon_tech_bonus
-			bonus = 1.0
-			uses = 1
-			category = recon_tech
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_army_inf_5
-	icon = GFX_focus_prc_infiltration
-	prerequisite = { focus = ISR_army_inf_7 focus = ISR_army_old_2 }
-	x = 0
-	y = 5
-	cost = 10
-	relative_position_id = ISR_army_effort
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-	add_ideas = special_forces
-		add_tech_bonus = {
-			name = special_forces_bonus
-			bonus = 1.00 
-			uses = 1
-			technology = paratroopers
-			technology = paratroopers2
-			technology = paratroopers3
-			technology = marines
-			technology = marines2
-			technology = marines3
-			technology = tech_mountaineers
-			technology = tech_mountaineers2
-			technology = tech_mountaineers3
-		}
-		add_doctrine_cost_reduction = {
-			name = land_doc_bonus
-			cost_reduction = 0.5
-			uses = 1
-			category = land_doctrine
-		} 
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###Navy###
-
-shared_focus = {
-	id = ISR_naval_effort
-	icon = GFX_goal_generic_construct_naval_dockyard
-	x = 5
-	y = 17
-	cost = 10
-	search_filters = {  FOCUS_FILTER_INDUSTRY }
-	
-	available_if_capitulated = yes
-	available = {
-		any_state = {
-			is_coastal = yes
-			is_controlled_by = ROOT
-		}
-	}
-	
-	completion_reward = {
-		navy_experience = 25
-		if = {
-			limit = {
-				
-				any_owned_state = {
-					is_coastal = yes
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					maintenance_company = { x = 0 y = 1 }
+					logistics_company = { x = 0 y = 2 }
+					field_hospital = { x = 0 y = 3 }
 				}
 			}
 			random_owned_controlled_state = {
-				limit = {
-					is_coastal = yes
-					free_building_slots = {
-						building = dockyard
-						size > 2
-						include_locked = yes
-					}
+				create_unit = {
+					division = "name = \"1. Med-Tank-Division\" division_template = \"Med-Tank\" start_experience_factor = 0.2" 
+					owner = ISR
 				}
-				add_extra_state_shared_building_slots = 3
+				create_unit = {
+					division = "name = \"2. Med-Tank-Division\" division_template = \"Med-Tank\" start_experience_factor = 0.2" 
+					owner = ISR
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_Standard_panzer
+		icon = GFX_ISR_Standardpanzer
+		prerequisite = { focus = ISR_build_up_panzer_divisions }
+		available = {}
+		x = 0
+		y = 1
+		cost = 10
+		relative_position_id = ISR_build_up_panzer_divisions
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = ISR_panzergrenadiers
+				bonus = 1.0
+				ahead_reduction = 0.5
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_new_infantry_tactics
+		icon = GFX_ISR_Renounce_the_Disarmament_Clauses
+		prerequisite = { focus = ISR_the_heer }
+		available = {}
+		x = -2
+		y = 1
+		cost = 6
+		relative_position_id = ISR_the_heer
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				name = ISR_new_infantry_tactics
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_artillery_modernization			
+		icon = GFX_GENERIC_Superior_Firepower
+		prerequisite = { focus = ISR_new_infantry_tactics }
+		available = {}
+		x = 0
+		y = 1
+		cost = 6
+		relative_position_id = ISR_new_infantry_tactics
+
+		available_if_capitulated = yes	
+		completion_reward = {
+			army_experience = 10
+			add_ideas = ISR_recarne_artilery
+			add_tech_bonus = {
+				name = artillery_bonus
+				ahead_reduction = 0.25
+				bonus = 0.75
+				uses = 1
+				category = artillery
+			}
+			add_tech_bonus = {
+                name = ISR_artillery_modernization
+                bonus = 1
+                uses = 1
+				category = cat_anti_air
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_counter_armor
+		icon = GFX_GENERIC_Tank_Destroyers
+		prerequisite = { focus = ISR_artillery_modernization }
+		available = {}
+		x = 0
+		y = 1
+		cost = 10
+		relative_position_id = ISR_artillery_modernization
+		
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = ISR_counter_armor
+				ahead_reduction = 0.1
+				bonus = 0.75
+				uses = 1
+				category = cat_anti_tank
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_oberkommando_des_heeres
+		icon = GFX_ISR_Reform_the_Oberkommando
+		prerequisite = { focus = ISR_counter_armor focus = ISR_Standard_panzer }
+		x = 0
+		y = 5
+		cost = 6
+		
+		relative_position_id = ISR_the_herr
+		available_if_capitulated = yes
+		continue_if_invalid = yes
+
+		completion_reward = {
+			army_experience = 25
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = dockyard
-					level = 3
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
 					instant_build = yes
 				}
 			}
 		}
-	}			
-}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
 
-shared_focus = {
-	id = ISR_submarine_effort
-	icon = GFX_goal_generic_navy_submarine
-	prerequisite = { focus = ISR_naval_effort }
-	x = -3
-	y = 1
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		navy_experience = 25	
-		add_tech_bonus = {
-			name = ss_bonus
-			bonus = 1.0
-			uses = 1
-			category = ss_tech
-		}
-	}
-}
+	shared_focus = {
+		id = ISR_the_luftwaffe
+		icon = GFX_ISR_Luftwaffe
+		prerequisite = { focus = ISR_wehrmacht_focus }
+		available = {}
+		dynamic = yes
+		x = -7
+		y = 1
+		cost = 6
+		relative_position_id = ISR_wehrmacht_focus
 
-shared_focus = {
-	id = ISR_submarine_effort_2
-	icon = GFX_goal_generic_navy_submarine
-	prerequisite = { focus = ISR_submarine_effort }
-	x = -3
-	y = 2
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		add_tech_bonus = {
-			name = ss_bonus
-			bonus = 1.0
-			uses = 1
-			category = ss_tech
-		}
-	}
-}
+		available_if_capitulated = yes
+		completion_reward = {
+		air_experience = 25
 
-shared_focus = {
-	id = ISR_destroyer_effort
-	icon = GFX_goal_generic_wolf_pack
-	prerequisite = { focus =  ISR_naval_effort}
-	x = -1
-	y = 1
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		navy_experience = 25
-		add_tech_bonus = {
-			name = dd_bonus
-			bonus = 1.0
-			uses = 1
-			category = dd_tech
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_destroyer_effort_2
-	icon = GFX_goal_generic_wolf_pack
-	prerequisite = { focus =  ISR_destroyer_effort}
-	x = -1
-	y = 2
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		add_tech_bonus = {
-			name = dd_bonus
-			bonus = 1.0
-			uses = 1
-			category = dd_tech
-		}
-	}
-}
-
-
-shared_focus = {
-	id = ISR_flexible_navy
-	icon = GFX_goal_generic_build_navy
-	prerequisite = { focus = ISR_submarine_effort_2 focus = ISR_destroyer_effort_2 focus = ISR_capital_ships_effort_5}
-	mutually_exclusive = { focus = ISR_large_navy }
-	x = -2
-	y = 3
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		
-		add_doctrine_cost_reduction = {
-			name = naval_doctrine
-			cost_reduction = 0.5
-			uses = 1
-			category = naval_doctrine
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_flexible_navy_2
-	icon = GFX_goal_generic_build_navy
-	prerequisite = { focus = ISR_flexible_navy }
-	x = -3
-	y = 4
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		
-		add_doctrine_cost_reduction = {
-			name = naval_doctrine
-			cost_reduction = 0.5
-			uses = 1
-			category = naval_doctrine
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_flexible_navy_3
-	icon = GFX_goal_generic_build_navy
-	prerequisite = { focus = ISR_flexible_navy_2 }
-	x = -3
-	y = 5
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		add_doctrine_cost_reduction = {
-			name = naval_doctrine
-			cost_reduction = 0.5
-			uses = 1
-			category = naval_doctrine
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_capital_ships_effort
-	icon = GFX_goal_generic_navy_battleship
-	prerequisite = { focus = ISR_naval_effort }
-	x = 4
-	y = 1
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		navy_experience = 25
-		add_tech_bonus = {
-			name = capital_ships_bonus
-			bonus = 1.0
-			uses = 1
-			category = bc_tech
-			category = bb_tech
-			category = cv_tech
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_capital_ships_effort_2
-	icon = GFX_goal_generic_navy_battleship
-	prerequisite = { focus = ISR_capital_ships_effort }
-	mutually_exclusive = { focus = ISR_capital_ships_effort_3 }
-	x = 3
-	y = 2
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		
-		add_tech_bonus = {
-			name = capital_ships_bonus
-			bonus = 1.5
-			uses = 1
-			category = bc_tech
-			category = bb_tech
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_capital_ships_effort_3
-	icon = GFX_goal_generic_navy_carrier
-	prerequisite = { focus = ISR_capital_ships_effort }
-	mutually_exclusive = { focus = ISR_capital_ships_effort_2 }
-	x = 5
-	y = 2
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		
-		add_tech_bonus = {
-			name = capital_ships_bonus
-			bonus = 1.5
-			uses = 1
-			category = cv_tech
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_capital_ships_effort_4
-	icon = GFX_focus_generic_cruiser2
-	prerequisite = { focus = ISR_naval_effort }
-	x = 1
-	y = 1
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		
-		add_tech_bonus = {
-			name = capital_ships_bonus
-			bonus = 1.00
-			uses = 1
-			category = cl_tech
-			category = ca_tech
-		}
-	}
-}
-shared_focus = {
-	id = ISR_capital_ships_effort_5
-	icon = GFX_focus_generic_cruiser2
-	prerequisite = { focus = ISR_capital_ships_effort_4 }
-	x = 1
-	y = 2
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		
-		add_tech_bonus = {
-			name = capital_ships_bonus
-			bonus = 0.50
-			uses = 2
-			category = cl_tech
-			category = ca_tech
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_naval_effort_2 
-	icon = GFX_goal_generic_construct_naval_dockyard
-	prerequisite = { 
-		focus = ISR_capital_ships_effort_2  
-		focus = ISR_capital_ships_effort_3 
-		focus = ISR_capital_ships_effort_5
-	}
-	x = 5
-	y = 3
-	cost = 10
-	relative_position_id = ISR_naval_effort
-	search_filters = {  FOCUS_FILTER_INDUSTRY }
-	
-	available_if_capitulated = yes
-	available = {
-		any_state = {
-			is_coastal = yes
-			is_controlled_by = ROOT
-		}
-	}
-	
-	completion_reward = {
-		navy_experience = 25
-		if = {
+		random_owned_controlled_state = {
 			limit = {
-				
-				any_owned_state = {
-					is_coastal = yes
+				free_building_slots = {
+					building = air_base
+					size > 1
 				}
 			}
-			random_owned_controlled_state = {
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = FRA_air_focus_2air
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = air_base
+					size > 1
+				}
+			}
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = FRA_air_focus_2air
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = air_base
+					size > 1
+				}
+			}
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = FRA_air_focus_2air
+		}
+	}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_Geschwader
+		icon = GFX_ISR_Deutsche_Luftstreitkrafte
+		prerequisite = { focus = ISR_the_luftwaffe }
+		available = {}
+		x = 0
+		y = 1
+		cost = 6
+		relative_position_id = ISR_the_luftwaffe
+
+		completion_reward = {
+			set_technology = {
+				basic_small_airframe = 1
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_entfalten_jagdgeschwader
+		icon = GFX_ISR_Fw190
+		prerequisite = { focus = ISR_Geschwader }
+		prerequisite = { focus = ISR_Fallschirmjager focus  = ISR_expand_air_bases}
+
+		available = {}
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = ISR_Geschwader
+
+		completion_reward = {
+			air_experience = 25
+			add_doctrine_cost_reduction = {
+				name = ISR_entfalten_jagdgeschwader
+				cost_reduction = 0.25
+				uses = 1
+				category = battlefield_support_tree
+			}
+			add_tech_bonus = {
+				name = ISR_entfalten_jagdgeschwader
+				bonus = 0.5
+				uses = 1
+				category = air_equipment
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_expand_Sturzkampfgeschwader
+		icon = GFX_ISR_BF109
+		prerequisite = { focus = ISR_Geschwader }
+		prerequisite = { focus = ISR_Fallschirmjager focus  = ISR_expand_air_bases}
+		available = {}
+		x = -1
+		y = 1
+		cost = 8
+		relative_position_id = ISR_Geschwader
+
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = ISR_expand_Sturzkampfgeschwader
+				bonus = 1.0
+				uses = 1
+				category = cas_bomber
+			}	
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_bomber_production
+		icon = GFX_ISR_He177
+		prerequisite = { focus = ISR_entfalten_jagdgeschwader }
+		prerequisite = { focus = ISR_expand_Sturzkampfgeschwader }
+		available = {}
+		x = 0
+		y = 2
+		cost = 8
+		relative_position_id = ISR_Geschwader
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ISR_bomber_production
+				bonus = 1.0
+				uses = 1
+				category = tactical_bomber
+			}
+			random_core_state = {
 				limit = {
-					is_coastal = yes
+					is_fully_controlled_by = ROOT
 					free_building_slots = {
-						building = dockyard
-						size > 2
+						building = arms_factory
+						size > 0
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
-					type = dockyard
-					level = 3
+					type = arms_factory
+					level = 1
 					instant_build = yes
 				}
 			}
 		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_Strahlflugzeug_plan
+		icon = GFX_ISR_Dusenprojekt
+		prerequisite = { focus = ISR_bomber_production }
+
+		x = -1
+		y = 1
+		cost = 10
+		relative_position_id = ISR_bomber_production
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ISR_rocketry_focus
+				bonus = 1.0
+				uses = 2
+				category = jet_technology
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_Amerika_bomber
+		icon = GFX_ISR_Amerika_Bomber
+		prerequisite = { focus = ISR_bomber_production }
+		available = {
+		}
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = ISR_bomber_production
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ISR_Amerika_bomber
+				ahead_reduction = 1
+				bonus = 1.0
+				uses = 1
+				category = cat_strategic_bomber
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_Fallschirmjager
+		icon = GFX_ISR_Fallschrimjager
+		prerequisite = { focus = ISR_the_luftwaffe }
+		available = {}
+		x = -2
+		y = 1
+		cost = 6
+		relative_position_id = ISR_the_luftwaffe
+
+		completion_reward = {
+			set_technology = {
+				basic_medium_airframe = 1
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	shared_focus = {
+		id = ISR_expand_air_bases
+		icon = GFX_GENERIC_Militarize_Civilian_Airports
+		prerequisite = { focus = ISR_the_luftwaffe }
+		x = 2
+		y = 1
+		cost = 8
+		relative_position_id = ISR_the_luftwaffe
 		
-	}			
-}
-
-shared_focus = {
-	id = ISR_large_navy
-	icon = GFX_goal_generic_navy_doctrines_tactics
-	prerequisite = { 
-		focus = ISR_capital_ships_effort_2 
-		focus = ISR_capital_ships_effort_3 
-		focus = ISR_capital_ships_effort_5
-	}
-	mutually_exclusive = { focus = ISR_flexible_navy }
-	x = 2
-	y = 3
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {   FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		navy_experience = 20
-		add_doctrine_cost_reduction = {
-			name = naval_doctrine
-			cost_reduction = 0.25
-			uses = 1
-			category = naval_doctrine
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_large_navy_2
-	icon = GFX_goal_generic_navy_doctrines_tactics
-	prerequisite = { focus = ISR_large_navy }
-	x = 3
-	y = 4
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {   FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		navy_experience = 20
-		add_doctrine_cost_reduction = {
-			name = naval_doctrine
-			cost_reduction = 0.25
-			uses = 1
-			category = naval_doctrine
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_large_navy_3
-	icon = GFX_goal_generic_navy_doctrines_tactics
-	prerequisite = { focus = ISR_large_navy_2 }
-	x = 3
-	y = 5
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {   FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		navy_experience = 20
-		add_doctrine_cost_reduction = {
-			name = naval_doctrine
-			cost_reduction = 0.25
-			uses = 1
-			category = naval_doctrine
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_Naval_eq
-	icon = GFX_goal_generic_navy_cruiser
-	prerequisite = { 
-		focus = ISR_large_navy 
-		focus = ISR_flexible_navy 
-	}
-	x = 0
-	y = 4
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
-		add_tech_bonus = {
-			name = sub_op_bonus
-			bonus = 1.0
-			uses = 4
-			technology = basic_battery 
-			technology = basic_light_battery 
-			technology = improved_light_battery   
-			technology = advanced_light_battery
-			technology = basic_medium_battery   
-			technology = improved_medium_battery  
-			technology = advanced_medium_battery  
-			technology = basic_heavy_battery 
-			technology = improved_heavy_battery 
-			technology = advanced_heavy_battery 	
-		}
-	}
-}
-
-shared_focus = {
-	id = ISR_Naval_landing
-	icon = GFX_goal_generic_navy_cruiser
-	prerequisite = { focus = ISR_Naval_eq }
-	x = 0
-	y = 5
-	relative_position_id = ISR_naval_effort
-	cost = 5
-	
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
-				}
-			}
-		}
-	}
-	completion_reward = {
 		
-		add_tech_bonus = {
-			name = fleet_in_being_bonus
-			bonus = 1.0
-			uses = 1
-			category = tp_tech
-		}
-		add_tech_bonus = {
-			name = fleet_in_being_bonus
-			bonus = 1.0
-			uses = 1
-			ahead_reduction = 2
-			category = tp_tech
-		}
-		add_tech_bonus = {
-			name = sub_op_bonus
-			bonus = 1.0
-			uses = 1
-			technology = amphibious_tank 
-			technology = amphibious_tank_2
-			technology = amphibious_mechanized_infantry
-			technology = amphibious_mechanized_infantry_2	
-				
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			set_technology = {
+				basic_large_airframe = 1
+			}
 		}
 	}
-}
 
-shared_focus = {
-	id = ISR_Naval_end
-	icon = GFX_goal_generic_navy_cruiser
-	prerequisite = { focus = ISR_large_navy_3 focus = ISR_flexible_navy_3 }
-	x = 0
-	y = 6
-	relative_position_id = ISR_naval_effort
-	cost = 10
-	
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			all_owned_state = {
-				OR = {
-					is_coastal = no
-					dockyard < 1
+	shared_focus = {
+		id = ISR_the_kriegsmarine
+		icon = GFX_ISR_Kriegsmarine
+		prerequisite = { focus = ISR_wehrmacht_focus }
+		available = {}
+		dynamic = yes
+		x = 7
+		y = 1
+		cost = 6
+		available_if_capitulated = no
+		relative_position_id = ISR_wehrmacht_focus
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			navy_experience = 15
+			add_tech_bonus = {
+				name = ISR_the_kriegsmarine
+				bonus = 1.5
+				uses = 1
+				category = naval_doctrine
+			}
+			
+		}
+	}
+
+	shared_focus =  {
+		id = ISR_naval_rearmament
+		icon = GFX_GENERIC_Marines
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = { focus =  ISR_the_kriegsmarine }
+		relative_position_id = ISR_the_kriegsmarine
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_tech_bonus = {
+				name = ISR_the_kriegsmarine
+				bonus = 1.5
+				uses = 1
+				category = naval_equipment
+			}
+		}
+	}
+
+	shared_focus =  {
+		id = ISR_crizmarine
+		icon = GFX_goal_Kaiserliche_Marine
+		available_if_capitulated = yes
+		continue_if_invalid = no
+		relative_position_id = ISR_naval_rearmament
+		prerequisite = {focus = ISR_naval_rearmament focus = ISR_naval_effort }
+		bypass = {
+		}
+		x = -1
+		y = 1
+		cost = 6
+		completion_reward = {
+			navy_experience = 25
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
 				}
 			}
 		}
 	}
-	completion_reward = {
-		add_ideas = hull_end
-	}
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###Air###
-  
-shared_focus = {
-	id = ISR_aviation_effort
-	icon = GFX_goal_generic_build_airforce
-	x = 5
-	y = 25
-	cost = 10
-	
-	search_filters = {   FOCUS_FILTER_RESEARCH }
-	available_if_capitulated = yes
-	available = {
-		num_of_factories > 25
-	}
-
-	completion_reward = {
-		air_experience = 25
-		add_tech_bonus = {
-			name = fighter_bonus
-			bonus = 2.5
-			uses = 2
-			category = plane_modules_tech	
-		}
-		
-	}
-}
-shared_focus = {
-	id = ISR_fighter_focus
-	icon = GFX_goal_generic_air_fighter
-	prerequisite = { focus = ISR_aviation_effort }
-	mutually_exclusive = { focus = ISR_rocket_focus }
-	x = -1
-	y = 1
-	relative_position_id = ISR_aviation_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = fighter_bonus
-			ahead_reduction = 3
-			uses = 1
-			category = cat_heavy_fighter
+	shared_focus = {
+		id = ISR_naval_effort
+		text = naval_effort
+		icon = GFX_GENERIC_Naval_School
+		prerequisite = { focus =  ISR_the_kriegsmarine }
+		x = 1
+		y = 1
+		relative_position_id = ISR_the_kriegsmarine
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				uses = 1
+				category = dd_tech
+			}
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
 		}
 	}
-}
-shared_focus = {
-	id = ISR_rocket_focus
-	icon = GFX_goal_generic_air_bomber
-	prerequisite = { focus = ISR_aviation_effort }
-	mutually_exclusive = { focus = ISR_fighter_focus }
-	x = 1
-	y = 1
-	relative_position_id = ISR_aviation_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = bomber_bonus
-			ahead_reduction = 6.5
-			uses = 1
-			category = rocketry
+
+	shared_focus = {
+		id = ISR_new_bismarck
+		icon = GFX_goal_generic_naval_battleship2
+		relative_position_id = ISR_naval_effort
+		prerequisite = {focus = ISR_naval_rearmament focus = ISR_naval_effort}
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+
+		cancel_if_invalid = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = cv_bonus
+				ahead_reduction = 0.5
+				bonus = 0.75
+				uses = 1
+				category = cv_tech
+			}
 		}
 	}
-}
-shared_focus = {
-	id = ISR_fighter_focus_2
-	icon = GFX_goal_generic_air_fighter
-	prerequisite = { focus = ISR_fighter_focus focus = ISR_rocket_focus }
-	mutually_exclusive = { focus = ISR_rocket_focus_2 }
-	x = -1
-	y = 2
-	relative_position_id = ISR_aviation_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = fighter_bonus
-			ahead_reduction = 1.2
-			uses = 1
-			category = heavy_air
+
+	shared_focus = {
+		id = ISR_plan_z
+		icon = GFX_ISR_Plan_Z
+		relative_position_id = ISR_naval_effort
+		prerequisite = {focus = ISR_naval_rearmament}
+		prerequisite = {focus = ISR_naval_effort}
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
+		available = {
+		}
+		cancel_if_invalid = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				name = bc_bonus
+				bonus = 1.0
+				uses = 1
+				category = bc_tech
+			}
+			add_tech_bonus = {
+				name = bb_bonus
+				bonus = 1.0
+				uses = 1
+				category = bb_tech
+				category = shbb_tech
+			}
+			add_tech_bonus = {
+				name = cv_bonus
+				bonus = 1.0
+				uses = 1
+				category = cv_tech
+			}
 		}
 	}
-}
-shared_focus = {
-	id = ISR_rocket_focus_2
-	icon = GFX_goal_generic_air_bomber
-	prerequisite = {focus = ISR_rocket_focus focus = ISR_fighter_focus  }
-	mutually_exclusive = { focus = ISR_fighter_focus_2 }
-	x = 1
-	y = 2
-	relative_position_id = ISR_aviation_effort
-	cost = 5
-	search_filters = {  FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		add_tech_bonus = {
-			name = bomber_bonus
-			ahead_reduction = 7.5
-			uses = 1
-			category = rocketry
-		}
-	}
-}
-shared_focus = {
-	id = ISR_aviation_effort_2
-	icon = GFX_goal_generic_air_doctrine
-	prerequisite = { focus = ISR_rocket_focus_2 focus = ISR_fighter_focus_2 }
-	x = -1
-	y = 2
-	relative_position_id = ISR_rocket_focus
-	cost = 10
-	search_filters = {   FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = yes
-	completion_reward = {
-		air_experience = 25
-		add_tech_bonus = {
-			name = fighter_bonus
-			bonus = 1
-			uses = 1
-			category = plane_modules_tech	
-		}	
-	}
-}

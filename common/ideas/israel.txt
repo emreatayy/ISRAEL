@@ -1,5 +1,39 @@
+#production_factory_efficiency_gain_factor = -0.15
+#production_factory_max_efficiency_factor = -0.15
+#research_speed_factor = -0.15
+#consumer_goods_factor = 0.2	
+#war_support_factor = -0.3
+#army_org_factor = -0.3
+#army_speed_factor = -0.3
+#army_attack_factor = -0.3
+#army_defence_factor = -0.3	
+#production_speed_infrastructure_factor = -0.3
+#production_speed_rail_way_factor = -0.3
+#production_speed_supply_node_factor = -0.3
+#production_speed_industrial_complex_factor = -0.3
+#production_speed_arms_factory_factor = -0.3
+#production_speed_dockyard_factor = -0.3
+#air_attack_factor = -0.5
+#air_defence_factor = -0.5
+#air_agility_factor = -0.5
+
 ideas = {
 	country = {
+		ISR_new_army = { 
+
+			allowed = {
+				original_tag = ISR
+			}
+
+			picture = tur_kemalist_army_officers_powerful_loyal
+				
+			removal_cost = -1
+				
+			modifier = {
+				weekly_manpower = 1000
+				conscription = 0.07
+			}
+		}
 		ISR_industrial_capacity = { 
 
 			allowed = {
