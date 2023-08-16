@@ -1948,11 +1948,8 @@ focus_tree = {
 		
 		available_if_capitulated = yes
 		completion_reward = {
-			add_tech_bonus = {
-				name = fighter_bonus
-				ahead_reduction = 5
-				uses = 2
-				category = cat_heavy_fighter
+			set_technology = {
+				advanced_medium_airframe = 1
 			}
 		}
 	}
@@ -1969,11 +1966,8 @@ focus_tree = {
 		
 		available_if_capitulated = yes
 		completion_reward = {
-			add_tech_bonus = {
-				name = bomber_bonus
-				ahead_reduction = 5
-				uses = 2
-				category = cat_strategic_bomber
+			set_technology = {
+				advanced_large_airframe = 1
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 shared_focus = {
 		id = ISR_wehrmacht_focus
 		icon = GFX_ISR_Wehrmacht
-		x = 0
+		x = 26
 		y = 0
 		cost = 6
 		available_if_capitulated = yes
